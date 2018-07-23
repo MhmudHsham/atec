@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Gallery;
 
 class GalleriesController extends Controller
 {
@@ -14,7 +15,8 @@ class GalleriesController extends Controller
      */
     public function index()
     {
-        //
+        $rows = Gallery::all();        
+        return view("admin.gallery.index", compact("rows"));
     }
 
     /**
@@ -80,6 +82,6 @@ class GalleriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Gallery::find($id)->delete();        
     }
 }

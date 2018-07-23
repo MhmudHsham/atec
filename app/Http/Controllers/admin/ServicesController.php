@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Service;
 
 class ServicesController extends Controller
 {
@@ -14,7 +15,8 @@ class ServicesController extends Controller
      */
     public function index()
     {
-        //
+        $rows = Service::all();        
+        return view("admin.services.index", compact("rows"));
     }
 
     /**
@@ -80,6 +82,6 @@ class ServicesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Service::find($id)->delete();        
     }
 }

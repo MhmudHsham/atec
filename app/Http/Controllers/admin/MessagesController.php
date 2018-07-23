@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Message;
 
 class MessagesController extends Controller
 {
@@ -14,7 +15,8 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        //
+        $rows = Message::all();        
+        return view("admin.messages.index", compact("rows"));
     }
 
     /**
@@ -80,6 +82,6 @@ class MessagesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Message::find($id)->delete();        
     }
 }

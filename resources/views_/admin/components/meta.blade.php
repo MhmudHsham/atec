@@ -18,12 +18,12 @@
 @yield("page_level_styles")
 <!-- END PAGE LEVEL STYLES -->
 <!-- BEGIN THEME GLOBAL STYLES -->
-<link href="{!! url('assets/admin/global/css/components-rtl.min.css') !!}" rel="stylesheet" id="style_components" type="text/css" />
-<link href="{!! url('assets/admin/global/css/plugins-rtl.min.css') !!}" rel="stylesheet" type="text/css" />
+<link href="{{ ADMIN_ASSET . '/global/css/components-rtl.min.css' }}" rel="stylesheet" id="style_components" type="text/css" />
+<link href="{{ ADMIN_ASSET . '/global/css/plugins-rtl.min.css' }}" rel="stylesheet" type="text/css" />
 <!-- END THEME GLOBAL STYLES -->
 <!-- BEGIN THEME LAYOUT STYLES -->
-<link href="{!! url('assets/admin/layouts/layout/css/layout-rtl.min.css') !!}" rel="stylesheet" type="text/css" />
-<link href="{!! url('assets/admin/layouts/layout/css/themes/darkblue-rtl.min.css') !!}" rel="stylesheet" type="text/css" id="style_color" />
-<link href="{!! url('assets/admin/layouts/layout/css/custom-rtl.min.css') !!}" rel="stylesheet" type="text/css" />
+<link href="{{ ADMIN_ASSET . '/layouts/layout/css/layout-rtl.min.css' }}" rel="stylesheet" type="text/css" />
+<link href="{{ ADMIN_ASSET . '/layouts/layout/css/themes/darkblue-rtl.min.css' }}" rel="stylesheet" type="text/css" id="style_color" />
+<link href="{{ ADMIN_ASSET . '/layouts/layout/css/custom-rtl.min.css' }}" rel="stylesheet" type="text/css" />
 <!-- END THEME LAYOUT STYLES -->
 <link rel="shortcut icon" href="favicon.ico" /> 

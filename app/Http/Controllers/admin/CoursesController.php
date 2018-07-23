@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Course;
 
 class CoursesController extends Controller
 {
@@ -13,8 +14,9 @@ class CoursesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {        
+        $rows = Course::with("year")->get();        
+        return view("admin.courses.index", compact("rows"));
     }
 
     /**
@@ -80,6 +82,6 @@ class CoursesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Course::find($id)->delete();        
     }
 }

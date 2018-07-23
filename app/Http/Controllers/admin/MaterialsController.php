@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Material;
 
 class MaterialsController extends Controller
 {
@@ -14,7 +15,8 @@ class MaterialsController extends Controller
      */
     public function index()
     {
-        //
+        $rows = Material::with("course")->all();        
+        return view("admin.materials.index", compact("rows"));
     }
 
     /**
@@ -80,6 +82,6 @@ class MaterialsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Material::find($id)->delete();        
     }
 }

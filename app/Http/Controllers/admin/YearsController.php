@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Year;
 
 class YearsController extends Controller
 {
@@ -14,7 +15,8 @@ class YearsController extends Controller
      */
     public function index()
     {
-        //
+        $rows = Year::withCount("courses")->get();                
+        return view("admin.years.index", compact("rows"));
     }
 
     /**
@@ -80,6 +82,6 @@ class YearsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Year::find($id)->delete();        
     }
 }

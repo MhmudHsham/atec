@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Slider;
 
 class SlidersController extends Controller
 {
@@ -14,7 +15,8 @@ class SlidersController extends Controller
      */
     public function index()
     {
-        //
+        $rows = Slider::all();        
+        return view("admin.sliders.index", compact("rows"));
     }
 
     /**
@@ -80,6 +82,6 @@ class SlidersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Slider::find($id)->delete();        
     }
 }

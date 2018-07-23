@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Instructor;
 
 class InstructorsController extends Controller
 {
@@ -14,7 +15,8 @@ class InstructorsController extends Controller
      */
     public function index()
     {
-        //
+        $rows = Instructor::all();        
+        return view("admin.instructors.index", compact("rows"));
     }
 
     /**
@@ -80,6 +82,6 @@ class InstructorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Instructor::find($id)->delete();        
     }
 }

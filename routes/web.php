@@ -28,6 +28,8 @@ Route::group(["middleware"=>["auth"], "prefix" => "admin"], function() {
     Route::resource('/materials', 'admin\MaterialsController');
     Route::resource('/messages', 'admin\MessagesController');
     Route::resource('/news', 'admin\NewsController');
-    Route::resource('/servives', 'admin\ServicesController');
+    Route::resource('/services', 'admin\ServicesController');
     Route::resource('/years', 'admin\YearsController');
+    Route::resource('/users', 'admin\UsersController');
+    Route::resource('/groups', 'admin\GroupsController');
 });
