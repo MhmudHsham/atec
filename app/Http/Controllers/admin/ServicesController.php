@@ -15,7 +15,7 @@ class ServicesController extends Controller
      */
     public function index()
     {
-        $rows = Service::all();        
+        $rows = Service::orderBy("id", "desc")->get();        
         return view("admin.services.index", compact("rows"));
     }
 
@@ -26,7 +26,8 @@ class ServicesController extends Controller
      */
     public function create()
     {
-        //
+        $id = 0;
+        return view("admin.services.form", compact("id"));
     }
 
     /**
@@ -37,7 +38,30 @@ class ServicesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "title_ar" => "required",
+            "title_en" => "required",            
+            "content_ar" => "required",
+            "content_en" => "required",
+        ]);
+
+        
+        $image = $request->file('logo');
+        $logo = time() . '.' . $image->getClientOriginalExtension();
+        $destinationPath = public_path('/uploads/images');
+        $image->move($destinationPath, $logo);
+ 
+        $update = Service::create([
+            'title_ar' => $request->title_ar,
+            'title_en' => $request->title_en,
+            "image" => $logo,
+            'content_ar' => $request->content_ar,
+            'content_en' => $request->content_en
+        ]);
+
+        if($update) {
+            return redirect('/admin/services');
+        }
     }
 
     /**
@@ -48,7 +72,7 @@ class ServicesController extends Controller
      */
     public function show($id)
     {
-        //
+        return Service::find($id);
     }
 
     /**
@@ -59,7 +83,7 @@ class ServicesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view("admin.services.form", compact("id"));
     }
 
     /**
@@ -71,7 +95,35 @@ class ServicesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            "title_ar" => "required",
+            "title_en" => "required",
+            "content_ar" => "required",
+            "content_en" => "required",
+        ]);
+
+        if (isset($request->logo) && $request->logo != "") {
+            $image = $request->file('logo');            
+            $logo = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/uploads/images');
+            $image->move($destinationPath, $logo);
+        }
+
+        $data = [];
+        $data['title_ar'] = $request->title_ar;
+        $data['title_en'] = $request->title_en;
+        if (isset($request->logo) && $request->logo != "") {
+            $data['image'] = $logo;
+        }
+        $data['content_ar'] = $request->content_ar;
+        $data['content_en'] = $request->content_en;
+
+ 
+        $update = Service::find($id)->update($data);
+
+        if($update) {
+            return redirect('/admin/services');
+        }
     }
 
     /**

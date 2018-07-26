@@ -26,7 +26,8 @@ class InstructorsController extends Controller
      */
     public function create()
     {
-        //
+        $id = 0;
+        return view("admin.instructors.form", compact("id"));
     }
 
     /**

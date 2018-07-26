@@ -14,6 +14,24 @@
                     <span class="selected"></span>
                 </a>
             </li>
+           
+            <li class="nav-item">
+                <a href="{{ url("/admin/groups") }}" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">مجموعات المستخدمين</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+
+             <li class="nav-item">
+                <a href="{{ url("/admin/users") }}" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">المستخدمين</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+
+
             <li class="nav-item">
                 <a href="{{ url("/admin/news") }}" class="nav-link nav-toggle">
                     <i class="icon-home"></i>

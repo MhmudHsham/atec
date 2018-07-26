@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
 
 class UsersController extends Controller
 {
@@ -14,7 +15,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $rows = User::orderBy("id", "desc")->get();
+        return view("admin.users.index", compact("rows"));
     }
 
     /**
@@ -24,7 +26,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        $id = 0;
+        return view("admin.users.form", compact("id"));
     }
 
     /**
@@ -35,7 +38,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

@@ -26,7 +26,8 @@ class YearsController extends Controller
      */
     public function create()
     {
-        //
+        $id = 0;
+        return view("admin.years.form", compact("id"));
     }
 
     /**

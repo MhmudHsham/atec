@@ -26,7 +26,8 @@ class GalleriesController extends Controller
      */
     public function create()
     {
-        //
+        $id = 0;
+        return view("admin.gallery.form", compact("id"));
     }
 
     /**

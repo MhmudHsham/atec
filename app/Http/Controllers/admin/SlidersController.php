@@ -15,7 +15,7 @@ class SlidersController extends Controller
      */
     public function index()
     {
-        $rows = Slider::all();        
+        $rows = Slider::orderBy("id", "desc")->get();        
         return view("admin.sliders.index", compact("rows"));
     }
 
@@ -26,7 +26,8 @@ class SlidersController extends Controller
      */
     public function create()
     {
-        //
+        $id = 0;
+        return view("admin.sliders.form", compact("id"));
     }
 
     /**
@@ -37,7 +38,27 @@ class SlidersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "title_ar" => "required",
+            "title_en" => "required",            
+            "logo" => "required",
+        ]);
+
+        
+        $image = $request->file('logo');
+        $logo = time() . '.' . $image->getClientOriginalExtension();
+        $destinationPath = public_path('/uploads/images');
+        $image->move($destinationPath, $logo);
+ 
+        $update = Slider::create([
+            'title_ar' => $request->title_ar,
+            'title_en' => $request->title_en,
+            "image" => $logo
+        ]);
+
+        if($update) {
+            return redirect('/admin/sliders');
+        }
     }
 
     /**
@@ -48,7 +69,7 @@ class SlidersController extends Controller
      */
     public function show($id)
     {
-        //
+        return Slider::find($id);
     }
 
     /**
@@ -59,7 +80,7 @@ class SlidersController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view("admin.sliders.form", compact("id"));
     }
 
     /**
@@ -71,7 +92,31 @@ class SlidersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            "title_ar" => "required",
+            "title_en" => "required"
+        ]);
+
+        if (isset($request->logo) && $request->logo != "") {
+            $image = $request->file('logo');            
+            $logo = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/uploads/images');
+            $image->move($destinationPath, $logo);
+        }
+
+        $data = [];
+        $data['title_ar'] = $request->title_ar;
+        $data['title_en'] = $request->title_en;
+        if (isset($request->logo) && $request->logo != "") {
+            $data['image'] = $logo;
+        }
+
+
+        $update = Slider::find($id)->update($data);
+
+        if($update) {
+            return redirect('/admin/sliders');
+        }
     }
 
     /**

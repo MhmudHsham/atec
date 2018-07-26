@@ -19,7 +19,6 @@
 <script src="{!! url('assets/admin/pages/scripts/form-icheck.min.js') !!}" type="text/javascript"></script>
 <script src="{!! url('assets/admin/pages/scripts/table-datatables-responsive.min.js') !!}" type="text/javascript"></script>
 <script src="{!! url('assets/admin/mine/generic.js') !!}"></script>
-<script src="{!! url('assets/admin/mine/course.js') !!}"></script>
 @stop
 
 @section("content")
@@ -33,7 +32,7 @@
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <span class="caption-subject bold uppercase">
-                        <a class="btn btn-info" href="{{ url('/admin/course/create') }}">إضافة جديد</a>
+                        <a class="btn btn-info" href="{{ url('/admin/courses/create') }}">إضافة جديد</a>
                     </span>
                 </div>
                 <div class="tools"> </div>
@@ -55,7 +54,7 @@
                         <tr class="tr_{{ $one->id }}">
                             <td class="text-center">{{ $counter }}</td>
                             <td>{{ $one->title_ar }} </td> 
-                            <td><span class="{{ $one->image }}"></span></td> 
+                            <td><img width="80px" src="{{ url('/uploads/images') . '/' . $one->image }}" /></td> 
                             <td>{{ $one->year->year }} </td> 
                             <td>
                                 <div class="btn-group pull-right">
@@ -63,6 +62,10 @@
                                         <i class="fa fa-angle-down"></i>
                                     </button>
                                     <ul class="dropdown-menu pull-right">
+                                        <li>
+                                            <a href="{{ url("/admin/materials")."/".$one->id }}">
+                                                <i class="fa fa-eye"></i> محتوى الكورس </a>
+                                        </li>
                                         <li>
                                             <a href="{{ url("/admin/courses/")."/".$one->id . "/edit" }}">
                                                 <i class="fa fa-pencil-square-o"></i> تعديل </a>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Group;
+use App\Page;
 
 class GroupsController extends Controller
 {
@@ -14,7 +16,8 @@ class GroupsController extends Controller
      */
     public function index()
     {
-        //
+        $rows = Group::withCount("users")->orderBy("id", "desc")->get();        
+        return view("admin.groups.index", compact("rows"));
     }
 
     /**
@@ -24,7 +27,10 @@ class GroupsController extends Controller
      */
     public function create()
     {
-        //
+        $id = 0;
+        $pages = Page::all();
+        $permissions = array();
+        return view("admin.groups.form", compact("id", "permissions", "pages"));
     }
 
     /**
@@ -35,7 +41,18 @@ class GroupsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "title" => "required",
+        ]);
+
+        $update = Group::create([
+            'title' => $request->title,
+            'permissions' => json_encode($request->permissions), 
+        ]);
+
+        if($update) {
+            return redirect('/admin/groups');
+        }
     }
 
     /**
@@ -46,7 +63,7 @@ class GroupsController extends Controller
      */
     public function show($id)
     {
-        //
+        return Group::find($id);
     }
 
     /**
@@ -57,7 +74,10 @@ class GroupsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pages = \App\Page::all();
+        $data = Group::find($id);
+        $permissions = json_decode($data->permissions);
+        return view("admin.groups.form", compact("id", "pages", "permissions"));
     }
 
     /**
@@ -69,7 +89,17 @@ class GroupsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            "title" => "required",
+        ]);
+
+        $update = Group::find($id)->update([
+            "title" => $request->title,
+            "permissions" => json_encode($request->permissions)
+        ]);
+        if($update) {
+            return redirect('/admin/groups');
+        }
     }
 
     /**
@@ -80,6 +110,6 @@ class GroupsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Group::find($id)->delete();
     }
 }

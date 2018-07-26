@@ -30,4 +30,7 @@ class User extends Authenticatable
 
     protected $dates = ['deleted_at'];
     
+    public function group() {
+        return $this->belongsTo("App\Group", "group_id");
+    }
 }

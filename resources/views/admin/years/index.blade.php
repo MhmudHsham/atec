@@ -18,8 +18,7 @@
 <script src="{!! url('assets/admin/pages/scripts/ui-toastr.min.js') !!}" type="text/javascript"></script>
 <script src="{!! url('assets/admin/pages/scripts/form-icheck.min.js') !!}" type="text/javascript"></script>
 <script src="{!! url('assets/admin/pages/scripts/table-datatables-responsive.min.js') !!}" type="text/javascript"></script>
-<script src="{!! url('assets/admin/mine/generic.js') !!}"></script>
-<script src="{!! url('assets/admin/mine/year.js') !!}"></script>
+<script src="{!! url('assets/admin/mine/generic.js') !!}"></script> 
 @stop
 
 @section("content")

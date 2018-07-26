@@ -18,8 +18,7 @@
 <script src="{!! url('assets/admin/pages/scripts/ui-toastr.min.js') !!}" type="text/javascript"></script>
 <script src="{!! url('assets/admin/pages/scripts/form-icheck.min.js') !!}" type="text/javascript"></script>
 <script src="{!! url('assets/admin/pages/scripts/table-datatables-responsive.min.js') !!}" type="text/javascript"></script>
-<script src="{!! url('assets/admin/mine/generic.js') !!}"></script>
-<script src="{!! url('assets/admin/mine/slider.js') !!}"></script>
+<script src="{!! url('assets/admin/mine/generic.js') !!}"></script> 
 @stop
 
 @section("content")
@@ -54,7 +53,7 @@
                         <tr class="tr_{{ $one->id }}">
                             <td class="text-center">{{ $counter }}</td>
                             <td>{{ $one->title_ar }} </td> 
-                            <td>{{ $one->image }}</td> 
+                            <td><img width="80px" src="{{ url('/uploads/images') . '/' . $one->image }}" /></td> 
                             <td>
                                 <div class="btn-group pull-right">
                                     <button class="btn green btn-xs btn-outline dropdown-toggle" data-toggle="dropdown">الإعدادات

@@ -11,6 +11,8 @@ class Course extends Model
 
     protected $dates = ['deleted_at'];
 
+    protected $fillable = ['title_ar', 'title_en', 'content_ar', 'content_en', 'image', "year_id"];
+
     public function year() {
         return $this->belongsTo("App\Year", "year_id");
     }
