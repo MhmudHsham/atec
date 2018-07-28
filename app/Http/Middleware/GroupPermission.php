@@ -30,10 +30,8 @@ class GroupPermission {
         return $path;
     }
 
-    public function filterPath($path) {
-        $path2 = str_replace('en/', "", $path);
-        $path3 = str_replace('ar/', "", $path2);
-        $path4 = str_replace('admin/', "", $path3);
+    public function filterPath($path) { 
+        $path4 = str_replace('admin/', "", $path);
         return $path4;
     }
 

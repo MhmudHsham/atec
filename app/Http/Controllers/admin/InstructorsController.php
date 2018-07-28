@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Instructor;
+use App\Group;
+use App\User;
 
 class InstructorsController extends Controller
 {
@@ -15,7 +17,7 @@ class InstructorsController extends Controller
      */
     public function index()
     {
-        $rows = Instructor::all();        
+        $rows = Instructor::with("user")->orderBy("id", "desc")->get();           
         return view("admin.instructors.index", compact("rows"));
     }
 
@@ -27,7 +29,8 @@ class InstructorsController extends Controller
     public function create()
     {
         $id = 0;
-        return view("admin.instructors.form", compact("id"));
+        $groups = Group::orderBy("id", "desc")->get();
+        return view("admin.instructors.form", compact("id", "groups"));
     }
 
     /**
@@ -38,7 +41,38 @@ class InstructorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "name" => "required",
+            "password" => "required",            
+            "confirm_password" => "required",
+            "email" => "required",
+            "position" => "required",
+            "bio" => "required",
+            "image" => "required"
+        ]);
+        
+        $image = $request->file('image');
+        $logo = time() . '.' . $image->getClientOriginalExtension();
+        $destinationPath = public_path('/uploads/images');
+        $image->move($destinationPath, $logo);
+ 
+        $user_id = User::create([
+            'name' => $request->name,
+            'password' => bcrypt($request->password),
+            'email' => $request->email, 
+            "group_id" => $request->group_id
+        ]);
+
+        $update = Instructor::create([
+            "position" => $request->position,
+            "bio" => $request->bio,
+            "image" => $logo,
+            "user_id" => $user_id->id
+        ]);
+
+        if($update) {
+            return redirect('/admin/instructors');
+        }
     }
 
     /**
@@ -83,6 +117,8 @@ class InstructorsController extends Controller
      */
     public function destroy($id)
     {
+        $user_id = Instructor::find($id)->user_id;
+        User::find($user_id)->delete();
         Instructor::find($id)->delete();        
     }
 }

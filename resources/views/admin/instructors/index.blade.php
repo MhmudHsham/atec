@@ -54,19 +54,15 @@
                         @foreach($rows as $one)
                         <tr class="tr_{{ $one->id }}">
                             <td class="text-center">{{ $counter }}</td>
-                            <td>{{ $one->name }} </td>  
-                            <td>{{ $one->image }} </td>  
+                            <td>{{ $one->user->name }} </td>  
+                            <td><img width="80px" src="{{ url('/uploads/images') . '/' . $one->image }}" /></td> 
                             <td>{{ $one->position }} </td>  
                             <td>
                                 <div class="btn-group pull-right">
                                     <button class="btn green btn-xs btn-outline dropdown-toggle" data-toggle="dropdown">الإعدادات
                                         <i class="fa fa-angle-down"></i>
                                     </button>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li>
-                                            <a href="{{ url("/admin/instructors/")."/".$one->id . "/edit" }}">
-                                                <i class="fa fa-pencil-square-o"></i> تعديل </a>
-                                        </li>
+                                    <ul class="dropdown-menu pull-right">                                       
                                         <li>
                                             <a data-id="{{ $one->id }}" class="delete-url" href="{{ url("/admin/instructors/")."/".$one->id }}">
                                                 <i class="fa fa-trash-o"></i> حذف</a>

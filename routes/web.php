@@ -41,4 +41,11 @@ Route::group(["middleware"=>["auth"], "prefix" => "admin"], function() {
     Route::resource('/users', 'admin\UsersController');
     Route::post('/groups/apply_update/{id}', "admin\GroupsController@update");
     Route::resource('/groups', 'admin\GroupsController');
+
+    Route::get('/profile', 'admin\ProfileController@index');
+    Route::get('/update_info', 'admin\ProfileController@update_info');
+    Route::post('/change_password', 'admin\ProfileController@change_password');
+    Route::post('/update_image', 'admin\ProfileController@update_image');
+    Route::post('/update_data', 'admin\ProfileController@update_data');
+
 });

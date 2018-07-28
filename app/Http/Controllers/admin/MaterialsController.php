@@ -73,6 +73,7 @@ class MaterialsController extends Controller
         $data['course_id'] = $course_id = $request->course_id;
         $data['content_ar'] = $request->content_ar;
         $data['content_en'] = $request->content_en;
+        $data['instructor_id'] = Auth::user()->id;
 
         $update = Material::create($data);
 

@@ -7,20 +7,17 @@ var Login = function() {
             errorClass: 'help-block', // default input error message class
             focusInvalid: false, // do not focus the last invalid input
             rules: {
-                username: {
+                email: {
                     required: true
                 },
                 password: {
                     required: true
-                },
-                remember: {
-                    required: false
                 }
             },
 
             messages: {
-                username: {
-                    required: "Username is required."
+                email: {
+                    required: "Email is required."
                 },
                 password: {
                     required: "Password is required."
@@ -90,9 +87,9 @@ var Login = function() {
 
             // init background slide images
             $('.login-bg').backstretch([
-                "../assets/pages/img/login/bg1.jpg",
-                "../assets/pages/img/login/bg2.jpg",
-                "../assets/pages/img/login/bg3.jpg"
+                "uploads/images/obour.jpg",
+                "uploads/images/obour.jpg",
+                "uploads/images/obour.jpg"
                 ], {
                   fade: 1000,
                   duration: 8000

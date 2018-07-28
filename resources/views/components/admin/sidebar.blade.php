@@ -10,7 +10,7 @@
             <li class="nav-item">
                 <a href="{{ url("/admin") }}" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
-                    <span class="title">Dashboard</span>
+                    <span class="title">الرئيسية</span>
                     <span class="selected"></span>
                 </a>
             </li>
