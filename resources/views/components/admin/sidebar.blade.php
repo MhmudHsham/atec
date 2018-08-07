@@ -14,6 +14,14 @@
                     <span class="selected"></span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a href="{{ url("/settings") }}" class="nav-link nav-toggle">
+                    <i class="icon-settings"></i>
+                    <span class="title">الإعدادات</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
            
             <li class="nav-item">
                 <a href="{{ url("/admin/groups") }}" class="nav-link nav-toggle">
