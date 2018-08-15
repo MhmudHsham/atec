@@ -11,13 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(["middleware"=>["auth"], "prefix" => "admin"], function() {
     Route::get('/', "admin\DashboardController@index");
@@ -49,3 +43,12 @@ Route::group(["middleware"=>["auth"], "prefix" => "admin"], function() {
     Route::post('/update_data', 'admin\ProfileController@update_data');
 
 });
+
+
+
+Route::get('/', 'HomeController@index');
+Route::get('/contact-us', 'ContactusController@index');
+
+
+
+
