@@ -15,19 +15,8 @@ class GalleriesController extends Controller
      */
     public function index()
     {
-        $rows = Gallery::all();        
+        $rows = Gallery::all();             
         return view("admin.gallery.index", compact("rows"));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $id = 0;
-        return view("admin.gallery.form", compact("id"));
     }
 
     /**
@@ -38,41 +27,16 @@ class GalleriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        $file = $request->file('image');
+        foreach($file as $one) {
+            $destinationPath = 'uploads/gallery';
+            $file_name = md5(date("Y-m-d h:i:s")) . "." .$one->getClientOriginalExtension();
+            Gallery::create([
+                "image" => $file_name
+            ]);
+            $one->move($destinationPath,$file_name);   
+        }
+        return redirect()->back()->with(['msg', 'Images Uploaded Successfully.']);
     }
 
     /**

@@ -9,5 +9,7 @@ class Gallery extends Model
 {
     use SoftDeletes;
 
+    protected $fillable = ["image"];
+
     protected $dates = ['deleted_at'];
 }

@@ -1,294 +1,191 @@
-<!-- ================ End Opening job Section ============================== -->
-<a href="#" id="scrollup" title="Scroll to Top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
-        <!-- ================= footer start ========================= -->
-<footer class="dark-bg footer">
-    <div class="container">
-        
-        <!-- Row Start -->
-        <div class="row">
-        
-            <div class="col-md-8 col-sm-8">
-                <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <h4>Micro Jobs</h4>
-                        <ul>
-                            <li><a href="?page=index_en">Company</a></li>
-                            <li><a href="?page=about_en">About Us</a></li>
-                            <li><a href="?page=contact_en">Contact Us</a></li>
-                            <li><a href="?page=how-it-works_en">How Arab Micro Job Works</a></li>
-                            <li><a href="?page=community_en">Community</a></li>
-                            <li><a href="?page=blog_en">Blog</a></li>
-                            <li><a href="?page=affiliates_en">Affiliates</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                        <h4>Terms</h4>
-                        <ul>
-                            <li><a href="?page=terms_en">Terms and Conditions</a></li>
-                            <li><a href="?page=acceptable_en">Acceptable Use Policy </a></li>
-                            <li><a href="?page=privacy_en">Privacy Policy </a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-md-4 col-sm-4">
-                        <h4>Support</h4>
-                        <ul>
-                            <li><a href="?page=contact_en">Contact Support</a></li>
-                            <li><a href="?page=selling_en">Selling</a></li>
-                            <li><a href="?page=buying_en">Buying</a></li>
-                            <li><a href="?page=payment_en">Payment Methods</a></li>
-                            <li><a href="?page=visa_en">Visa - Mastercard</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 col-sm-4">
-                <h4>Contact Info</h4>
-                <!-- Newsletter -->
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Enter Email">
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default"><i class="fa fa-location-arrow font-20"></i></button>
-                    </span>
-                </div>
-                
-                <!-- Social Box -->
-                <div class="f-social-box">
-                    <ul>
-                        <li><a href="#" target="_blank"><i class="fa fa-facebook facebook-cl"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-google google-plus-cl"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-twitter twitter-cl"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-pinterest pinterest-cl"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-instagram instagram-cl"></i></a></li>
-                    </ul>
-                </div>
-                
-                <!-- App Links -->
-                <div class="f-app-box">
-                    <ul>
-                        <li><a href="#" target="_blank"><i class="fa fa-apple"></i>App Store</a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-android"></i>Play Store</a></li>
-                    </ul>
-                </div>
-                
-            </div>
-            
-        </div>
-        
-        <!-- Row Start -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="copyright text-center">
-                    <p>&copy; Copyright 2018 Arabmicrojob | Powerd By <a href="#" target="_blank" title="Tacweed">Tacweed</a></p>
-                </div>
-            </div>
-        </div>
-        
-    </div>
+<footer>
+	<div class="container">
+		<div class="row inner">
+			<div class="col-sm-3">
+				<img src="images/1.jpg" class="img-responsive img" title="logo" alt="logo">
+				<!-- <p class="des">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lacinia massa vitae lacus facilisis, id condimentum nibh commodo. integer sagittis magna a magna dignissim lacinia. Etiam nec purus suscipit sem tempor semper vitae vel est. Phasellus consectetur, lacus at auctor gravida.</p>
+				<button type="button">start free a trail</button> -->
+			</div>
+			<div class="col-sm-3 links1">
+				<h5>quick links</h5>
+				<hr>
+				<ul class="list-unstyled">
+					<!-- <li>
+						<a href="all_courses.html"><i class="fa fa-link"></i>All Courses</a>
+					</li>
+					<li>
+						<a href="event.html"><i class="fa fa-chain-broken"></i>Upcoming Events</a>
+					</li>
+					<li>
+						<a href="blog.html"><i class="fa fa-link"></i>Our Blogs</a>
+					</li> -->
+					<!-- <li>
+						<a href="our_team.html"><i class="fa fa-link"></i>Our Team</a>
+					</li> -->
+					<li>
+						<a href="about.html"><i class="fa fa-link"></i>About us</a>
+					</li>
+					<li>
+						<a href="faq.html"><i class="fa fa-link"></i>FAQ</a>
+					</li>
+				 	<!-- <li>
+						<a href="price_plan.html"><i class="fa fa-link"></i>Price Plan</a>
+					</li> -->
+					<li>
+						<a href="login_register.html"><i class="fa fa-link"></i>Register Now</a>
+					</li>
+					<li>
+						<a href="contactus.html"><i class="fa fa-link"></i>Contact us</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-sm-3 links2">
+				<h5>Products</h5>
+				<hr>
+				<ul class="list-unstyled">
+					<li>
+						<a href="all_courses.html"><i class="fa fa-link"></i>All Courses</a>
+					</li>
+					<li>
+						<a href="event.html"><i class="fa fa-chain-broken"></i>Upcoming Events</a>
+					</li>
+					<li>
+						<a href="blog.html"><i class="fa fa-link"></i>Our Blogs</a>
+					</li>
+					<li>
+						<a href="our_team.html"><i class="fa fa-link"></i>Our Team</a>
+					</li>
+					<!-- <li>
+						<a href="about.html"><i class="fa fa-link"></i>About us</a>
+					</li>
+					<li>
+						<a href="faq.html"><i class="fa fa-link"></i>FAQ</a>
+					</li>
+					<li>
+						<a href="price_plan.html"><i class="fa fa-link"></i>Price Plan</a>
+					</li>
+					<li>
+						<a href="login_register.html"><i class="fa fa-link"></i>Register Now</a>
+					</li>
+					<li>
+						<a href="contactus.html"><i class="fa fa-link"></i>Contact us</a>
+					</li> -->
+				</ul>
+			</div>
+			<!-- <div class="col-sm-3 links2">
+				<h5>popular courses</h5>
+				<hr>
+				<ul class="list-unstyled">
+					<li class="box">
+						<img src="images/c1.png" class="img-responsive" alt="image" title="image" />
+						<p>Introduction to Mobile Application Development</p>
+						<span>$39.00</span>
+					</li>
+					<li class="box">
+						<img src="images/c2.png" class="img-responsive" alt="image" title="image" />
+						<p>Introduction to Wordpress website Development</p>
+						<span class="text">Free</span>
+					</li>
+					<li class="box">
+						<img src="images/c3.png" class="img-responsive" alt="image" title="image" />
+						<p>Introduction to Android Application Development</p>
+						<span>$39.00</span>
+					</li>
+				</ul>
+			</div> -->
+			<div class="col-sm-3 links2">
+				<h5>contact us</h5>
+				<hr>
+				<!-- <p class="des1">Nunc quis viverra nibh. Etiam mauris leo, consequat ut tincidunt ac, lobortis consequat ligula.</p> -->
+				<ul class="list-unstyled contact">
+					<li>
+						<i class="icofont icofont-home"></i> Address : 14/3 Samrala Chownk, Main Road, Ludhiana 141001, India.
+					</li>
+					<li>
+						<i class="icofont icofont-phone"></i> 	Phone Number : +91 123457890<br> Fax : +00 123 456 7890
+					</li>
+					<li>
+						<i class="icofont icofont-globe"></i>Email : educourses@example.com<br>Website : www.educourses.com
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="social">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<ul class="list-inline">
+						<li>
+							<a href="https://www.facebook.com/" target="_blank"><i class="icofont icofont-social-facebook"></i></a>
+						</li>
+						<li>
+							<a href="https://twitter.com/" target="_blank"><i class="icofont icofont-social-twitter"></i></a>
+						</li>
+						<li>
+							<a href="https://plus.google.com/" target="_blank"><i class="icofont icofont-social-google-plus"></i></a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/" target="_blank"><i class="icofont icofont-social-instagram"></i></a>
+						</li>
+						<li>
+							<a href="https://www.linkedin.com/uas/login" target="_blank"><i class="icofont icofont-social-linkedin"></i></a>
+						</li>
+						<li>
+							<a href="https://in.pinterest.com/" target="_blank"><i class="icofont icofont-social-pinterest"></i></a>
+						</li>
+						<li>
+							<a href="https://www.skype.com/en/" target="_blank"><i class="icofont icofont-social-skype"></i></a>
+						</li>
+						<li>
+							<a href="https://www.stumbleupon.com/" target="_blank"><i class="icofont icofont-social-stumbleupon"></i></a>
+						</li>
+						<li>
+							<a href="https://www.youtube.com/" target="_blank"><i class="icofont icofont-social-youtube"></i></a>
+						</li>
+						<li>
+							<a href="https://www.tumblr.com/" target="_blank"><i class="icofont icofont-social-tumblr"></i></a>
+						</li>
+						<li>
+							<a href="https://dribbble.com/" target="_blank"><i class="icofont icofont-social-dribbble"></i></a>
+						</li>
+						<li>
+							<a href="https://envato.com/" target="_blank"><i class="icofont icofont-social-envato"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="powered">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+					<ul class="list-inline">
+						<li>
+							<a href="index-2.html">Home</a>
+						</li>
+						<li>
+							<a href="all_courses.html">ALL courses</a>
+						</li>
+						<li>
+							<a href="about.html">ABOUT</a>
+						</li>
+						<li>
+							<a href="event.html">Events</a>
+						</li>
+						<li>
+							<a href="blog.html">blog</a>
+						</li>
+						<li>
+							<a href="contactus.html">contact us</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-6 text-right">
+					<p>EDU Courses Online Education © 2017 TMD Studio, All Rights Reserved.</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </footer>
-
-<!-- Apply Job Popup -->
-<div class="modal fade" id="apply-job" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content" id="myModalLabel2">
-            <div class="modal-body">
-                <div class="text-center">
-                    <img src="./assets/img/logo.png" class="img-responsive" alt="">
-                    <h4 class="mrg-0">Front End Designer</h4>
-                    <span> 2708 Scenic Way, Sutter</span>
-                </div>
-                
-                <form>
-
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" placeholder="Name">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" placeholder="Email">
-                    </div>
-            
-
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="text" class="form-control" placeholder="Phone">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Upload CV</label>
-                        <div class="custom-file-upload">
-                            <input type="file" id="file" name="myfiles[]" multiple />
-                        </div>
-                    </div>
-            
-                    <div class="form-group">
-                        <textarea class="form-control height-120" placeholder="Pase CV"></textarea>
-                    </div>
-
-                    <div class="form-group text-center">
-                        <button type="button" class="btn theme-btn btn-m">Save & Apply</button>
-                    </div>
-                    
-                </form>
-                    
-            </div>
-        </div>
-    </div>
-</div>   
-<!-- Apply Job Popup -->
-
-<!-- Sign Up Window Code -->
-<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content" id="myModalLabel1">
-            <div class="modal-body">
-                <div class="text-center"><img src="{{ url('assets/front/img/logo.png') }}" class="img-responsive" alt=""></div>
-                
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs nav-advance theme-bg" role="tablist">
-                    <li class="nav-item active">
-                        <a class="nav-link" data-toggle="tab" href="#employer" role="tab">
-                        <i class="ti-user"></i> Seller</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#candidate" role="tab">
-                        <i class="ti-user"></i> Buyer</a>
-                    </li>
-                </ul>
-                <!-- Nav tabs -->
-                    
-                <!-- Tab panels -->
-                <div class="tab-content">
-                
-                    <!-- Employer Panel 1-->
-                    <div class="tab-pane fade in show active" id="employer" role="tabpanel">
-                        <form method="post" action="{{ url('/sellers/apply_login') }}">
-                            <input type="hidden" name="type" value="seller">
-                            {{csrf_field()}}
-                            <div class="form-group">
-                                <label>User Name</label>
-                                <input type="text" name="email" class="form-control" placeholder="Email">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" name="password" class="form-control" placeholder="*********">
-                            </div>
-                                                        
-                            <div class="form-group">
-                                <a href="{{ url('/sellers/register') }}" title="Forget"  class="fl-left"><i class="fa fa-user-plus"></i> Create New Account?</a>
-                            </div>
-                            <div class="form-group text-center">
-                                <button type="submit" class="btn theme-btn full-width btn-m">Login </button>
-                            </div>
-                            
-                        </form>
-                        
-                        <div class="log-option"><span>OR</span></div>
-                        
-                        <div class="row mrg-bot-20">
-                            <div class="col-md-6">
-                                <a href="#" title="" class="fb-log-btn log-btn"><i class="fa fa-facebook"></i>Sign In With Facebook</a>
-                            </div>
-                            <div class="col-md-6">
-                                <a href="#" title="" class="gplus-log-btn log-btn"><i class="fa fa-google-plus"></i>Sign In With Google+</a>
-                            </div>
-                        </div>
-            
-                    </div>
-                    <!--/.Panel 1-->
-                    
-                    <!-- Candidate Panel 2-->
-                    <div class="tab-pane fade" id="candidate" role="tabpanel">
-                    <form method="post" action="{{ url('/buyers/apply_login') }}">
-                            <input type="hidden" name="type" value="seller">
-                            {{csrf_field()}}
-                            <div class="form-group">
-                                <label>User Name</label>
-                                <input type="text" name="email" class="form-control" placeholder="Email">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" name="password" class="form-control" placeholder="*********">
-                            </div>
-                                                        
-                            <div class="form-group">
-                                <a href="{{ url('/buyers/register') }}" title="Forget"  class="fl-left"><i class="fa fa-user-plus"></i> Create New Account?</a>
-                            </div>
-                            <div class="form-group text-center">
-                                <button type="submit" class="btn theme-btn full-width btn-m">Login </button>
-                            </div>
-                            
-                        </form>
-                        
-                        <div class="log-option"><span>OR</span></div>
-                        
-                        <div class="row mrg-bot-20">
-                            <div class="col-md-6">
-                                <a href="#" title="" class="fb-log-btn log-btn"><i class="fa fa-facebook"></i>Sign In With Facebook</a>
-                            </div>
-                            <div class="col-md-6">
-                                <a href="#" title="" class="gplus-log-btn log-btn"><i class="fa fa-google-plus"></i>Sign In With Google+</a>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <!--/.Panel 2-->
-                    
-                </div>
-                <!-- Tab panels -->
-            </div>
-        </div>
-    </div>
-</div>   
-<!-- End Sign Up Window -->
-    
-<!-- =================== START JAVASCRIPT ================== -->
-<!-- Jquery js-->
-<script src="{{ url('assets/front/js/jquery.min.js') }}"></script>
-
-<!-- Bootstrap js-->
-<script src="{{ url('assets/front/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-
-<!-- Bootsnav js-->
-<script src="{{ url('assets/front/plugins/bootstrap/js/bootsnav.js') }}"></script>
-<script src="{{ url('assets/front/js/viewportchecker.js') }}"></script>
-
-<!-- Slick Slider js-->
-<script src="{{ url('assets/front/plugins/slick-slider/slick.js') }}"></script>
-
-<!-- wysihtml5 editor js -->
-<script src="{{ url('assets/front/plugins/bootstrap/js/wysihtml5-0.3.0.js') }}"></script>
-<script src="{{ url('assets/front/plugins/bootstrap/js/bootstrap-wysihtml5.js') }}"></script>
-
-<!-- Aos Js -->
-<script src="{{ url('assets/front/plugins/aos-master/aos.js') }}"></script>
-
-<!-- Nice Select -->
-<script src="{{ url('assets/front/plugins/nice-select/js/jquery.nice-select.min.js') }}"></script>
-
-<!-- Custom Js -->
-<script src="{{ url('assets/front/js/custom.js') }}"></script>
-
-<script>
-    AOS.init();
-</script>
-<script>
-    $('#paypal').on('click', function(){
-        $(this).parent().find('a').trigger('click')
-    })
-
-    $('#stripe').on('click', function(){
-        $(this).parent().find('a').trigger('click')
-    })
-    
-    $('#debit').on('click', function(){
-        $(this).parent().find('a').trigger('click')
-    })
-</script>
-
-@yield('js')

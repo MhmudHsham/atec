@@ -13,10 +13,12 @@ class SettingsController extends Controller
         return view("admin.settings", compact("settings"));
     }
 
-    public function store(Request $request) {
+    public function store(Request $request) {        
         foreach ($request->all() as $key => $one) {
+            if($key == "_token")
+                continue;
             Setting::where("setting_key", $key)->update(["setting_value" => $one]);
         }
-        return redirect('admin/');
+        return redirect('admin/settings');
     }
 }

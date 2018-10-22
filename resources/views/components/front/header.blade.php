@@ -1,126 +1,169 @@
-        <!-- ======================= Start Navigation ===================== -->
-        <nav class="navbar navbar-default navbar-mobile navbar-fixed light bootsnav">
-            <div class="container">
-            
-                <!-- Start Logo Header Navigation -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{ url('assets/front/img/logo.png') }}" class="logo logo-display" alt="">
-                        <img src="{{ url('assets/front/img/logo.png') }}" class="logo logo-scrolled" alt="">
-                    </a>
+<!--top start here -->
+<div class="top">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-xs-12">
+				<ul class="list-inline pull-left icon">
+					<li>
+						<a href="contactus.html"><i class="icofont icofont-exclamation-circle"></i>Help center</a>
+					</li>
+					<li>
+						<a href="faq.html"><i class="icofont icofont-support-faq"></i>faq</a>
+					</li>
+					<li>
+						<!--language code start here-->
+						<form  method="post" enctype="multipart/form-data" id="language">
+							<div class="btn-group">
+								<button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+									<span class="text"><i class="icofont icofont-globe"></i> Lang : English</span> <i class="icofont icofont-caret-down"></i>
+								</button>
+								<ul class="dropdown-menu dropdown-menu-right">
+									<li>
+										<a href="#"><img src="images/flag.jpg" alt="english" title="english" /> English</a>
+									</li>
+								</ul>
+							</div>
+						</form>
+						<!--language code end here-->
+					</li>
+				</ul>
+				<ul class="list-inline pull-right icon">
+					<li>
+						<a href="all_courses.html"><i class="icofont icofont-navigation-menu"></i>Browse Courses</a>
+					</li>
+					<li>
+						<a href="login_register.html"><i class="icofont icofont-key"></i>Login</a>
+					</li>
+					<li>
+						<a href="login_register.html"><i class="icofont icofont-ui-user"></i>Register</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!--top end here -->
 
-                </div>
-                <!-- End Logo Header Navigation -->
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar-menu">
-                
-                    <ul class="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp">
-                    
-                        <li>
-                            <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
-                        </li>
-                        @if( \Session::get("buyer-data") == null)
-                        <li>
-                            <a href="{{ url('/selling') }}">Selling</a>
-                        </li>
-                        @endif
-                        @if( \Session::get("seller-data") == null)
-                        <li>
-                            <a href="{{ url('/buying') }}">Buying</a>
-                        </li>
-                        @endif
-                        <li>
-                            <a href="{{ url('/how-it-works') }}">How it Works</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Categories</a>
-                            <ul class="dropdown-menu animated fadeOutUp">
-                                @foreach($categories as $one)
-                                    <li><a href="{{ url('/') }}">{{ $one->{$slug->title} }}</a></li> 
-                                @endforeach
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="{{ url('/contact-us') }}">Contact us</a>
-                        </li>
-                        
-                    </ul>
-                    
-                    <ul class="nav navbar-nav navbar-right">
-                        @if( \Session::get("seller-data") != null)
-                        <li class="dropdown sign-up">
-							<a class="dropdown-toggle btn-signup red-btn" data-toggle="dropdown" href="javascript:void(0);">
-								<img src="{{ url('uploads/sellers/' . \Session::get('seller-data')->image) }}" class="img-responsive img-circle" alt="">{{ \Session::get("seller-data")->name }}
-							</a>
-                            @php($seller_data = \Session::get('seller-data'))
-                            @if($seller_data->image != "user.png")
-							<ul class="dropdown-menu animated fadeOutUp">
-								<li><a href="{{ url('/sellers/profile') }}">Profile</a></li>                            
-                                <li><a href="{{ url('/sellers/services/add') }}">Add Service</a></li>                            
-                                <li><a href="javascript:void(0);">Messages</a></li> 
-								<li><a href="javascript:void(0);">Browse Jobs</a></li>
-								<li><a href="{{ url('/sellers/logout') }}">Sign Out</a></li>
+<!-- header start here-->
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				<div id="logo">
+					<a href="index-2.html">
+						<img class="img-responsive" src="images/1.jpg" alt="logo" title="logo" />
+					</a>
+				</div>
+			</div>
+			<div class="col-md-8 col-sm-8 col-xs-12">
+				<!-- menu start here -->
+				<div id="menu">	
+					<nav class="navbar">
+						<div class="navbar-header">
+							<span class="menutext visible-xs">Menu</span>
+							<button data-target=".navbar-ex1-collapse" data-toggle="collapse" class="btn btn-navbar navbar-toggle" type="button">
+								<i class="fa fa-bars" aria-hidden="true"></i>
+							</button>
+						</div>
+						<div class="collapse navbar-collapse navbar-ex1-collapse padd0">
+							<ul class="nav navbar-nav text-right">
+								<li>
+									<a href="{{ url('/') }}">HOME</a>
+								</li>
+								<li>
+								</li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">All courses</a>
+									<div class="dropdown-menu repeating">
+										<div class="dropdown-inner">
+											<ul class="list-unstyled">
+												<li>
+													<a href="all_courses.html">All courses</a>
+												</li>
+												<li>
+													<a href="all_courses_singleview.html">Single course view</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES</a>
+									<div class="dropdown-menu repeating">
+										<div class="dropdown-inner">
+											<ul class="list-unstyled">
+												<li>
+													<a href="login_register.html">Login and register</a>
+												</li>
+												<li>
+													<a href="blog.html">Our Blog</a>
+												</li>
+												<li>
+													<a href="blog_detail.html">Blog  Detail</a>
+												</li>
+												<li>
+													<a href="our_team.html">Our Team</a>
+												</li>
+												<li>
+													<a href="price_plan.html">Price Plan</a>
+												</li>
+												<li>
+													<a href="error-404.html">404 error</a>
+												</li>
+												<li>
+													<a href="faq.html">faq</a>
+												</li>
+												<li>
+													<a href="comingsoon.html">Coming soon</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">events</a>
+									<div class="dropdown-menu">
+										<div class="dropdown-inner">
+											<ul class="list-unstyled">
+												<li>
+													<a href="event.html">events</a>
+												</li>
+												<li>
+													<a href="event-view.html">event view</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+								<li>
+									<a href="gallery.html">Gallery</a>
+								</li>
+								<li>
+									<a href="contactus.html">contact us</a>
+								</li>
 							</ul>
-                            @else 
-                            <ul class="dropdown-menu animated fadeOutUp">
-								<li><a href="{{ url('/sellers/edit') }}">Complete Profile</a></li>
-								<li><a href="{{ url('/sellers/logout') }}">Sign Out</a></li>
-							</ul>
-                            @endif
-						</li>
-                        @elseif(\Session::get("buyer-data") != null)
-                        <li class="dropdown sign-up">
-							<a class="dropdown-toggle btn-signup red-btn" data-toggle="dropdown" href="javascript:void(0);">
-								<img src="{{ url('uploads/sellers/' . \Session::get('buyer-data')->image) }}" class="img-responsive img-circle" alt="">{{ \Session::get("buyer-data")->name }}
-							</a>
-                            @php($buyer_data = \Session::get('buyer-data'))
-                            @if($buyer_data->image != "user.png")
-							<ul class="dropdown-menu animated fadeOutUp">
-								<li><a href="{{ url('/buyers/profile') }}">Profile</a></li>                            
-                                <li><a href="{{ url('/buyers/requests/add') }}">Add Request</a></li>                            
-                                <li><a href="javascript:void(0);">Messages</a></li> 
-								<li><a href="javascript:void(0);">Browse Jobs</a></li>
-								<li><a href="{{ url('/buyers/logout') }}">Sign Out</a></li>
-							</ul>
-                            @else 
-                            <ul class="dropdown-menu animated fadeOutUp">
-								<li><a href="{{ url('/buyers/edit') }}">Complete Profile</a></li>
-								<li><a href="{{ url('/buyers/logout') }}">Sign Out</a></li>
-							</ul>
-                            @endif
-						</li>
-                        @else
-                        <li class="br-right"><a href="javascript:void(0)"  data-toggle="modal" data-target="#signin"><i class="login-icon ti-user"></i>Login</a></li>
-                        @endif
-
- 
-
-
-
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-money"></i> Currency</a>
-                            <ul class="dropdown-menu animated fadeOutUp">
-                                @foreach($currencies as $one)
-                                    <li><a href="javascript:void(0);">{{ $one->{$slug->title} }}</a></li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-language"></i> Language</a>
-                            <ul class="dropdown-menu animated fadeOutUp">
-                                <li><a href="#">English</a></li>
-                                <li><a href="#">Arabic</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                        
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>   
-        </nav>
-        <!-- ======================= End Navigation ===================== -->
-        
+						</div>
+					</nav>
+				</div>
+				<!-- menu end here -->
+			</div>
+			<!-- <div class="col-md-3 col-sm-3 col-xs-12">
+				<ul class="list-inline icon pull-right">
+					<li>
+						<form class="form-horizontal" method="post" id="srch">
+							<fieldset>
+								<div class="form-group">
+									<input name="s" value="" class="form-control" placeholder="Search" type="text">
+								</div>
+								<button type="submit" value="submit" class="btn">
+									<i class="icofont icofont-search"></i>
+								</button>
+							</fieldset>
+						</form>
+					</li>
+					<li>
+						<button type="button" class="btn-primary">Start free a trail</button>
+					</li>
+				</ul>
+			</div> -->
+		</div>
+	</div>
+</header>
+<!-- header end here -->

@@ -14,6 +14,9 @@
 Auth::routes();
 
 Route::group(["middleware"=>["auth"], "prefix" => "admin"], function() {
+    Route::get('/settings', 'admin\SettingsController@index');
+    Route::post('/store_settings', 'admin\SettingsController@store');
+
     Route::get('/', "admin\DashboardController@index");
     Route::post('/sliders/apply_update/{id}', "admin\SlidersController@update");
     Route::resource('/sliders', 'admin\SlidersController');
@@ -42,13 +45,13 @@ Route::group(["middleware"=>["auth"], "prefix" => "admin"], function() {
     Route::post('/update_image', 'admin\ProfileController@update_image');
     Route::post('/update_data', 'admin\ProfileController@update_data');
 
+
+    Route::get('students-list', 'admin\StudentsSheetController@index');
+    Route::post('load-students', 'admin\StudentsSheetController@store');
 });
 
 
 
 Route::get('/', 'HomeController@index');
+Route::get('about-us', 'HomeController@about_us');
 Route::get('/contact-us', 'ContactusController@index');
-
-
-
-

@@ -4,82 +4,90 @@
 @section("page_level_styles")
 <link href="{!! url('assets/admin/global/plugins/bootstrap-toastr/toastr.min.css') !!}" rel="stylesheet" type="text/css" />
 <link href="{!! url('assets/admin/global/plugins/icheck/skins/all.css') !!}" rel="stylesheet" type="text/css" />
-<link href="{!! url('assets/admin/global/plugins/datatables/datatables.min.css') !!}" rel="stylesheet" type="text/css" />
-<link href="{!! url('assets/admin/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css') !!}" rel="stylesheet" type="text/css" />
 @stop
 @section("page_level_script_plugins")
 <script src="{!! url('assets/admin/global/plugins/bootstrap-toastr/toastr.min.js') !!}" type="text/javascript"></script>
 <script src="{!! url('assets/admin/global/plugins/icheck/icheck.min.js') !!}" type="text/javascript"></script>
-<script src="{!! url('assets/admin/global/scripts/datatable.js') !!}" type="text/javascript"></script>
-<script src="{!! url('assets/admin/global/plugins/datatables/datatables.min.js') !!}" type="text/javascript"></script>
-<script src="{!! url('assets/admin/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') !!}" type="text/javascript"></script>
 @stop
 @section("page_level_scripts")
 <script src="{!! url('assets/admin/pages/scripts/ui-toastr.min.js') !!}" type="text/javascript"></script>
-<script src="{!! url('assets/admin/pages/scripts/form-icheck.min.js') !!}" type="text/javascript"></script>
-<script src="{!! url('assets/admin/pages/scripts/table-datatables-responsive.min.js') !!}" type="text/javascript"></script>
 <script src="{!! url('assets/admin/mine/generic.js') !!}"></script>
-<script src="{!! url('assets/admin/mine/news.js') !!}"></script>
+<script src="{!! url('assets/admin/mine/gallery.js') !!}"></script>
 @stop
 
 @section("content")
-<!--<div class="m-heading-1 border-green m-bordered">-->
-
-<!--</div>-->
 <div class="row">
     <div class="col-md-12">
-        <!-- BEGIN EXAMPLE TABLE PORTLET-->
-        <div class="portlet light bordered">
+        <div class="portlet light portlet-fit bordered">
             <div class="portlet-title">
-                <div class="caption font-dark">
-                    <span class="caption-subject bold uppercase">
-                        <a class="btn btn-info" href="{{ url('/admin/news/create') }}">إضافة جديد</a>
-                    </span>
+                <div class="caption">
+                    <i class=" icon-layers font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">معرض الصور</span>
                 </div>
-                <div class="tools"> </div>
             </div>
             <div class="portlet-body">
-                <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_1">
-                    <thead>
-                        <tr>
-                            <th class="all"># </th>
-                            <th class="all"> عنوان الخبر</th>
-                            <th class="all"> صورة الخبر </th>
-                            <th class="all"> الإعدادات </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @php($counter = 1)
-                        @foreach($rows as $one)
-                        <tr class="tr_{{ $one->id }}">
-                            <td class="text-center">{{ $counter }}</td>
-                            <td>{{ $one->title_ar }} </td> 
-                            <td><span class="{{ $one->image }}"></span></td> 
-                            <td>
-                                <div class="btn-group pull-right">
-                                    <button class="btn green btn-xs btn-outline dropdown-toggle" data-toggle="dropdown">الإعدادات
-                                        <i class="fa fa-angle-down"></i>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li>
-                                            <a href="{{ url("/admin/news/")."/".$one->id . "/edit" }}">
-                                                <i class="fa fa-pencil-square-o"></i> تعديل </a>
-                                        </li>
-                                        <li>
-                                            <a data-id="{{ $one->id }}" class="delete-url" href="{{ url("/admin/news/destroy/")."/".$one->id }}">
-                                                <i class="fa fa-trash-o"></i> حذف</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        @php($counter++)
-                        @endforeach
-                    </tbody>
-                </table> 
+                <div class="mt-element-card mt-element-overlay">
+                    <div class="row">
+                        
+                    <div class="col-md-12">                           
+            <div class="portlet-body">
+                @php($action = url('/admin/gallery'))
+                <!-- BEGIN FORM   -->
+                <form action="{{ $action }}" class="form-horizontal" id="gallery_form" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}                    
+                    <div class="form-body">
+                        <div class="alert alert-danger display-hide">
+                            <button class="close" data-close="alert"></button> {{ trans("lang.You_have_some_form_errors._Please_check_below.") }} </div>
+                        <div class="alert alert-success display-hide">
+                            <button class="close" data-close="alert"></button> {{ trans("lang.Your_form_validation_is_successful!") }} </div>
+                        <div class="form-group form-md-line-input">
+                            <label class="col-md-2 control-label" for="form_control_1">الصورة
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-md-4">
+                                <input type="file" class="form-control" placeholder="" name="image[]" multiple id="image">
+                                <div class="form-control-focus"> </div>
+                                <span class="help-block">{{ trans("lang.Enter_title_(AR)") }}</span>                                
+                            </div>
+                            <div class="col-5-4">
+                                <button type="submit" class="btn green">حفظ</button>                                
+                            </div>
+                        </div>                        
+                    </div>
+                </form>
+                <!-- END FORM-->
+        </div>
+    </div>
+
+
+
+                    
+                    
+                    
+                    @foreach($rows as $one)
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 tr_{{$one->id}}">
+                            <div class="mt-card-item">
+                                <div class="mt-card-avatar mt-overlay-1">
+                                    <img src="{{ url('/uploads/gallery/'.$one->image) }}" />
+                                    <div class="mt-overlay">
+                                        <ul class="mt-info">
+                                            <li>                                                
+                                                <a data-id="{{ $one->id }}" class="btn default btn-outline delete-url" href="{{ url("/admin/gallery/")."/".$one->id }}">x</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>                               
+                            </div>
+                        </div>
+                    @endforeach
+                       
+
+
+
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
 @stop
