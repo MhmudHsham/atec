@@ -5,7 +5,7 @@
 	<div class="slideshow owl-carousel">
 		@foreach($sliders as $one)
 		<div class="item">
-			<img src="{{ url('/uploads/images/' . $one->image) }}" alt="banner" title="banner" class="img-responsive"/>
+			<img style="height: 500px;" src="{{ url('/uploads/images/' . $one->image) }}" alt="banner" title="banner" class="img-responsive"/>
 		</div>
 		@endforeach
 	</div>
@@ -227,132 +227,31 @@
 				</div>
 			</div>
 			
+			@foreach($news as $one)
 			<div class="col-sm-4 col-xs-12">
 				<div class="box">
 					<div class="image">
-						<a href="blog.html">
-							<img src="images/b1.jpg" class="img-responsive" alt="img" title="img" />
+						<a href="{{ url('news/details/' . $one->id . '/' . str_replace(' ', '-', $one->title)) }}">
+							<img src="{{ url('uploads/images/' . $one->image) }}" class="img-responsive" alt="{{ $one->title }}" title="{{ $one->title }}" />
 						</a>
 					</div>
 					<div class="caption">
 						<ul class="list-inline">
 							<li>
-								<a href="#"><i class="icofont icofont-ui-calendar"></i>August 22th, 2017</a>
+								<a href="javascript:void(0);"><i class="icofont icofont-ui-calendar"></i>{{ $one->created_at }}</a>
 							</li>
 							<li>
 								<a href="#"><i class="icofont icofont-comment"></i>10</a>
 							</li>
 						</ul>
-						<h3>Photoshop</h3>
-						<h4>How to create Smoke Effect in Photoshop?</h4>
+						<h3>{{ $one->title_en }}</h3>
+						<h4>{{ substr($one->content_en, 0, 80) }}</h4>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-4 col-xs-12">
-				<div class="box">
-					<div class="image">
-						<a href="blog.html">
-							<img src="images/b2.jpg" class="img-responsive" alt="img" title="img" />
-						</a>
-					</div>
-					<div class="caption">
-						<ul class="list-inline">
-							<li>
-								<a href="#"><i class="icofont icofont-ui-calendar"></i>August 28th, 2017</a>
-							</li>
-							<li>
-								<a href="#"><i class="icofont icofont-comment"></i>10</a>
-							</li>
-						</ul>
-						<h3>Technology</h3>
-						<h4>How to convert PSD file to HTML file?</h4>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4 col-xs-12">
-				<div class="box">
-					<div class="image">
-						<a href="blog.html">
-							<img src="images/b3.jpg" class="img-responsive" alt="img" title="img" />
-						</a>
-					</div>
-					<div class="caption">
-						<ul class="list-inline">
-							<li>
-								<a href="#"><i class="icofont icofont-ui-calendar"></i>August 30th, 2017</a>
-							</li>
-							<li>
-								<a href="#"><i class="icofont icofont-comment"></i>10</a>
-							</li>
-						</ul>
-						<h3>Marketing</h3>
-						<h4>How to Write Catchy Headlines and Blog Titles Your Readers Cant Resist</h4>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4 col-xs-12">
-				<div class="box">
-					<div class="image">
-						<a href="blog.html">
-							<img src="images/b4.jpg" class="img-responsive" alt="img" title="img" />
-						</a>
-					</div>
-					<div class="caption">
-						<ul class="list-inline">
-							<li>
-								<a href="#"><i class="icofont icofont-ui-calendar"></i>August 22th, 2017</a>
-							</li>
-							<li>
-								<a href="#"><i class="icofont icofont-comment"></i>10</a>
-							</li>
-						</ul>
-						<h3>Technology</h3>
-						<h4>How to Build Chatting App in Phonegap?</h4>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4 col-xs-12">
-				<div class="box">
-					<div class="image">
-						<a href="blog.html">
-							<img src="images/b5.jpg" class="img-responsive" alt="img" title="img" />
-						</a>
-					</div>
-					<div class="caption">
-						<ul class="list-inline">
-							<li>
-								<a href="#"><i class="icofont icofont-ui-calendar"></i>August 28th, 2017</a>
-							</li>
-							<li>
-								<a href="#"><i class="icofont icofont-comment"></i>10</a>
-							</li>
-						</ul>
-						<h3>Technology</h3>
-						<h4>Professional Nature Photography?</h4>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4 col-xs-12">
-				<div class="box">
-					<div class="image">
-						<a href="blog.html">
-							<img src="images/b6.jpg" class="img-responsive" alt="img" title="img" />
-						</a>
-					</div>
-					<div class="caption">
-						<ul class="list-inline">
-							<li>
-								<a href="#"><i class="icofont icofont-ui-calendar"></i>August 30th, 2017</a>
-							</li>
-							<li>
-								<a href="#"><i class="icofont icofont-comment"></i>10</a>
-							</li>
-						</ul>
-						<h3>Adobe Illustrator</h3>
-						<h4>How to Create Professional Logo?</h4>
-					</div>
-				</div>
-			</div>
+			@endforeach
+
+
 		</div>
 	</div>
 </div>
@@ -361,19 +260,28 @@
 <!-- testimonail start here -->
 <div class="testimonail">
 	<div class="image">
-		<img src="images/test_bg.jpg" class="img-responsive" alt="bg" title="bg" />
+		<img src="{{ url('assets/front/images/test_bg.jpg') }}" class="img-responsive" alt="bg" title="bg" />
 	</div>
 	<div class="inner">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12">
-					<div class="box">
-						<div class="icon">
-							<img src="images/test.png" class="img-responsive" alt="image" title="image" />	
+				<div id="newsletter">
+					<div class="container">
+						<div class="row">
+							<div id="subscribe">
+								<form class="form-horizontal" name="subscribe" id="subscribe-form">
+									<div class="col-sm-12"> 
+										<p class="news">SUBSCribe to our <span>newsletter</span></p>
+									</div>
+									<div class="col-sm-12 form-group">
+										<div class="input-group">
+											<input  value="" name="subscribe_email" id="subscribe_email" placeholder="Type your e-mail..." type="text">
+											<button class="btn btn-news" type="submit" value="submit">Submit</button>
+										</div>
+									</div>
+								</form>
+							</div> 
 						</div>
-						<h4>John Doe</h4>
-						<h5>Graphic Designer</h5>
-						<p><i class="icofont icofont-quote-left"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 					</div>
 				</div>
 			</div>
@@ -382,26 +290,14 @@
 </div>
 <!-- testimonail end here -->
 
-<!-- newsletter start here -->
-<div id="newsletter">
-	<div class="container">
-		<div class="row">
-			<div id="subscribe">
-				<form class="form-horizontal" name="subscribe">
-					<div class="col-sm-12"> 
-						<p class="news">SUBSCribe to our <span>newsletter</span></p>
-					</div>
-					<div class="col-sm-12 form-group">
-						<div class="input-group">
-							<input  value="" name="subscribe_email" id="subscribe_email" placeholder="Type your e-mail..." type="text">
-							<button class="btn btn-news" type="submit" value="submit">Submit</button>
-						</div>
-					</div>
-				</form>
-			</div> 
-		</div>
-	</div>
-</div>
-<!-- newsletter end here -->
 
+@stop
+
+@section("js_files")
+	<script>
+		var custom = {
+			subscribe_url: "{{ url('subscribe') }}"
+		};
+	</script>
+	<script src="assets/front/custom/js/home.js" type="text/javascript"></script>
 @stop

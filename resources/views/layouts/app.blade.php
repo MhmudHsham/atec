@@ -78,7 +78,7 @@
 			<div class="col-md-3 col-sm-3 col-xs-12">
 				<div id="logo">
 					<a href="index-2.html">
-						<img class="img-responsive" src="images/1.jpg" alt="logo" title="logo" />
+						<img class="img-responsive" src="assets/front/images/1.jpg" alt="logo" title="logo" />
 					</a>
 				</div>
 			</div>
@@ -95,10 +95,10 @@
 						<div class="collapse navbar-collapse navbar-ex1-collapse padd0">
 							<ul class="nav navbar-nav text-right">
 								<li>
-									<a href="index.html">HOME</a>
+									<a href="{{ url('/') }}">HOME</a>
 								</li>
 								<li>
-									<a href="about.html">about us</a>
+									<a href="{{ url('about-us') }}">about us</a>
 								</li>
 								<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">All courses</a>
 									<div class="dropdown-menu repeating">
@@ -164,7 +164,7 @@
 									<a href="gallery.html">Gallery</a>
 								</li>
 								<li>
-									<a href="contactus.html">contact us</a>
+									<a href="{{ url('contact-us') }}">contact us</a>
 								</li>
 							</ul>
 						</div>
@@ -402,6 +402,9 @@
 <script src="assets/front/js/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
 <!--internal js-->
 <script src="assets/front/js/internal.js" type="text/javascript"></script>
+
+@yield("js_files")
+
 </body>
 
 </html>

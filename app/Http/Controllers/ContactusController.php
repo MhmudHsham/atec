@@ -11,6 +11,6 @@ class ContactusController extends Controller
     }
 
     public function index() {
-        return view("front.contact-us");
+        return view("front.contact_us");
     }
 }
