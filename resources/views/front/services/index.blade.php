@@ -1,58 +1,59 @@
 @extends("layouts.app")
 @section("content")
 
-
 <!-- bread-crumb start here -->
 <div class="bread-crumb">
 	<img src="{{ url('assets/front/images/banner-top.jpg') }}" class="img-responsive" alt="banner-top" title="banner-top">
 	<div class="container">
 		<div class="matter">
-			<h2>About us</h2>
+			<h2>Services</h2>
 			<ul class="list-inline">
-				<li>
-					<a href="{{ url('/') }}">HOME</a>
-				</li>
-				<li>
-					<a href="{{ url('about-us') }}">About us</a>
-				</li>
+				<li><a href="{{ url('') }}">HOME</a></li>
+				<li><a href="{{ url('services') }}">Services</a></li>
 			</ul>
 		</div>
 	</div>
 </div>
 <!-- bread-crumb end here -->
 
-<!-- abouts start here -->
-<div class="abouts">
+<!-- event start here -->	
+<div class="event">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 col-xs-12">
-				<div class="commontop text-center">
-					<h2>About us</h2>
-					{{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br> incididunt ut labore et dolore magna aliqua.</p> --}}
-					<hr>
-				</div>
-			</div>	
-			<div class="col-sm-6 col-xs-12">
-				<p class="des">
-					{{ $settings['about_us_en'] }}					
-				</p>				
+                
+                
+                @foreach($services as $one)
+                <div class="box">
+					<div class="image">
+						<img style="width:270px;height:207px;" src="{{ url('uploads/images/' . $one->image) }}" class="img-responsive" alt="{{ $one->title_en }}" title="{{ $one->title_en }}" />
+					</div>
+					<div class="caption">
+						<h4>{{ $one->title_en }}<span class="pull-right">{{ $one->created_at }}</span></h4>
+						<ul class="list-inline">
+							<li>9.00 am to 4.00 pm</li>
+							<li><i class="icofont icofont-social-google-map"></i> New Chownk, A Plaza, Newyork 1000</li>
+							<li class="pull-right">Wednesday</li>
+						</ul>
+						<p>{{ substr($one->content_en, 0, 350) }}</p>
+						<button type="button" onclick="location.href='{{ url('services/details/' . $one->id) }}'">Register</button>
+					</div>
+                </div>
+                @endforeach
+                
+
 			</div>
-			<div class="col-sm-6 col-xs-12">
-				<div class="image">
-					<img src="uploads/images/obour.jpg" class="img-responsive" alt="img" title="img" />
-					{{-- <div class="icon">
-						<div class="ico">
-							<a href="#"><i class="icofont icofont-ui-play"></i></a>
-						</div>
-					</div> --}}
-				</div>
+			<!--pagination code start here-->
+			<div class="col-sm-12 col-xs-12">		
+				<ul class="list-inline pagination">
+                    {{ $services->links() }}
+				</ul>
 			</div>
+			<!--pagination code end here-->
 		</div>
 	</div>
 </div>
-<!-- abouts end here -->
-
-
+<!-- event end here -->
 
 <!-- newsletter start here -->
 <div id="newsletter">
@@ -75,6 +76,8 @@
 	</div>
 </div>
 <!-- newsletter end here -->
+
+
 
 @stop
 

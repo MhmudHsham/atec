@@ -25,7 +25,6 @@
 <!-- contactus start here -->
 <div class="map">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3445.5252614402566!2d31.475563685442296!3d30.279104981797538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145805bed9b8923b%3A0x41b5ccabb7c832c2!2z2YXYudmH2K8g2KfZhNi52KjZiNixINin2YTYudin2YTZiQ!5e0!3m2!1sar!2seg!4v1540623733749" frameborder="0" style="border:0" allowfullscreen></iframe>
-	{{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d219104.85983086875!2d75.71658808151895!3d30.90026973769041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a837462345a7d%3A0x681102348ec60610!2sLudhiana%2C+Punjab!5e0!3m2!1sen!2sin!4v1482266274532"></iframe> --}}
 </div>
 <div class="contactus">
 	<div class="container"> 

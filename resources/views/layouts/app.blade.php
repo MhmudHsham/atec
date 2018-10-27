@@ -145,23 +145,12 @@
 											</ul>
 										</div>
 									</div>
-								</li>
-								<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">events</a>
-									<div class="dropdown-menu">
-										<div class="dropdown-inner">
-											<ul class="list-unstyled">
-												<li>
-													<a href="event.html">events</a>
-												</li>
-												<li>
-													<a href="event-view.html">event view</a>
-												</li>
-											</ul>
-										</div>
-									</div>
+								</li>								
+								<li>
+									<a href="{{ url('news') }}">News</a>
 								</li>
 								<li>
-									<a href="gallery.html">Gallery</a>
+									<a href="{{ url('services') }}">Services</a>
 								</li>
 								<li>
 									<a href="{{ url('contact-us') }}">contact us</a>

@@ -54,4 +54,8 @@ Route::group(["middleware"=>["auth"], "prefix" => "admin"], function() {
 
 Route::get('/', 'HomeController@index');
 Route::get('about-us', 'HomeController@about_us');
-Route::get('/contact-us', 'ContactusController@index');
+Route::get('contact-us', 'ContactusController@index');
+Route::get('services', 'ServicesController@index');
+Route::get('services/details/{service_id}', 'ServicesController@details');
+Route::get('news', 'NewsController@index');
+Route::get('news/details/{service_id}', 'NewsController@details');
