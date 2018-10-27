@@ -51,11 +51,19 @@ Route::group(["middleware"=>["auth"], "prefix" => "admin"], function() {
 });
 
 
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['localize']
+        ]
+        , function() {
+    Route::get(LaravelLocalization::transRoute('/'), "HomeController@index");
+    Route::get(LaravelLocalization::transRoute('about-us'), 'HomeController@about_us');
+    Route::get(LaravelLocalization::transRoute('contact-us'), 'ContactusController@index');
+    Route::get(LaravelLocalization::transRoute('services'), 'ServicesController@index');
+    Route::get(LaravelLocalization::transRoute('services/details/{service_id}'), 'ServicesController@details');
+    Route::get(LaravelLocalization::transRoute('news'), 'NewsController@index');
+    Route::get(LaravelLocalization::transRoute('news/details/{news_id}'), 'NewsController@details');
+    Route::get(LaravelLocalization::transRoute('login'), 'UsersController@loginView');
+    Route::get(LaravelLocalization::transRoute('courses'), 'CoursesController@index');
+});
 
-Route::get('/', 'HomeController@index');
-Route::get('about-us', 'HomeController@about_us');
-Route::get('contact-us', 'ContactusController@index');
-Route::get('services', 'ServicesController@index');
-Route::get('services/details/{service_id}', 'ServicesController@details');
-Route::get('news', 'NewsController@index');
-Route::get('news/details/{service_id}', 'NewsController@details');

@@ -8,21 +8,21 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Home</title>
 <!-- Bootstrap stylesheet -->
-<link href="assets/front/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="{{ url('assets/front/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
 <!-- font -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet"> 
 <!-- icofont -->
-<link href="assets/front/icofont/css/icofont.css" rel="stylesheet" type="text/css" />
+<link href="{{ url('assets/front/icofont/css/icofont.css') }}" rel="stylesheet" type="text/css" />
 <!-- font-awesome -->
-<link href="assets/front/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="{{ url('assets/front/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
 <!-- crousel css -->
-<link href="assets/front/js/owl-carousel/owl.carousel.css" rel="stylesheet" type="text/css" />
+<link href="{{ url('assets/front/js/owl-carousel/owl.carousel.css') }}" rel="stylesheet" type="text/css" />
 <!--bootstrap select-->
-<link href="assets/front/js/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
+<link href="{{ url('assets/front/js/dist/css/bootstrap-select.css') }}" rel="stylesheet" type="text/css" />
 <!-- stylesheet -->
-<link href="assets/front/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="{{ url('assets/front/css/style.css') }}" rel="stylesheet" type="text/css"/>
 <!-- New stylesheet -->
-<link rel="stylesheet" type="text/css" href="assets/front/css/newstyle.css">
+<link rel="stylesheet" type="text/css" href="{{ url('assets/front/css/newstyle.css') }}">
 </head>
 <body>
 <!--top start here -->
@@ -32,22 +32,31 @@
 			<div class="col-sm-12 col-xs-12">
 				<ul class="list-inline pull-left icon">
 					<li>
-						<a href="contactus.html"><i class="icofont icofont-exclamation-circle"></i>Help center</a>
+						<a href="{{ url($lang . '/contact-us') }}"><i class="icofont icofont-exclamation-circle"></i>Help center</a>
 					</li>
 					<li>
-						<a href="faq.html"><i class="icofont icofont-support-faq"></i>faq</a>
+						<a href="{{ url($lang . '/faq') }}"><i class="icofont icofont-support-faq"></i>faq</a>
 					</li>
 					<li>
 						<!--language code start here-->
 						<form  method="post" enctype="multipart/form-data" id="language">
 							<div class="btn-group">
 								<button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-									<span class="text"><i class="icofont icofont-globe"></i> Lang : English</span> <i class="icofont icofont-caret-down"></i>
+									<span class="text"><i class="icofont icofont-globe"></i>
+										 Lang : {{ LaravelLocalization::getCurrentLocaleName() }}</span> 
+										 <i class="icofont icofont-caret-down"></i>
 								</button>
 								<ul class="dropdown-menu dropdown-menu-right">
+									@foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+									@if($lang != $localeCode)
 									<li>
-										<a href="#"><img src="images/flag.jpg" alt="english" title="english" /> English</a>
+										<a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+											<i class="la la-language"></i>
+											{{ $properties['native'] }}
+										</a>
 									</li>
+									@endif
+									@endforeach
 								</ul>
 							</div>
 						</form>
@@ -56,13 +65,10 @@
 				</ul>
 				<ul class="list-inline pull-right icon">
 					<li>
-						<a href="all_courses.html"><i class="icofont icofont-navigation-menu"></i>Browse Courses</a>
+						<a href="{{ url($lang . '/courses') }}"><i class="icofont icofont-navigation-menu"></i>Browse Courses</a>
 					</li>
 					<li>
-						<a href="login_register.html"><i class="icofont icofont-key"></i>Login</a>
-					</li>
-					<li>
-						<a href="login_register.html"><i class="icofont icofont-ui-user"></i>Register</a>
+						<a href="{{ url($lang.'/login') }}"><i class="icofont icofont-key"></i>Login</a>
 					</li>
 				</ul>
 			</div>
@@ -77,8 +83,8 @@
 		<div class="row">
 			<div class="col-md-3 col-sm-3 col-xs-12">
 				<div id="logo">
-					<a href="index-2.html">
-						<img class="img-responsive" src="assets/front/images/1.jpg" alt="logo" title="logo" />
+					<a href="{{ url($lang . '/') }}">
+						<img class="img-responsive" src="{{ url('assets/front/images/1.jpg') }}" alt="logo" title="logo" />
 					</a>
 				</div>
 			</div>
@@ -95,65 +101,22 @@
 						<div class="collapse navbar-collapse navbar-ex1-collapse padd0">
 							<ul class="nav navbar-nav text-right">
 								<li>
-									<a href="{{ url('/') }}">HOME</a>
+									<a href="{{ url($lang.'/') }}">HOME</a>
 								</li>
 								<li>
-									<a href="{{ url('about-us') }}">about us</a>
-								</li>
-								<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">All courses</a>
-									<div class="dropdown-menu repeating">
-										<div class="dropdown-inner">
-											<ul class="list-unstyled">
-												<li>
-													<a href="all_courses.html">All courses</a>
-												</li>
-												<li>
-													<a href="all_courses_singleview.html">Single course view</a>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</li>
-								<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES</a>
-									<div class="dropdown-menu repeating">
-										<div class="dropdown-inner">
-											<ul class="list-unstyled">
-												<li>
-													<a href="login_register.html">Login and register</a>
-												</li>
-												<li>
-													<a href="blog.html">Our Blog</a>
-												</li>
-												<li>
-													<a href="blog_detail.html">Blog  Detail</a>
-												</li>
-												<li>
-													<a href="our_team.html">Our Team</a>
-												</li>
-												<li>
-													<a href="price_plan.html">Price Plan</a>
-												</li>
-												<li>
-													<a href="error-404.html">404 error</a>
-												</li>
-												<li>
-													<a href="faq.html">faq</a>
-												</li>
-												<li>
-													<a href="comingsoon.html">Coming soon</a>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</li>								
-								<li>
-									<a href="{{ url('news') }}">News</a>
+									<a href="{{ url($lang.'/about-us') }}">About us</a>
 								</li>
 								<li>
-									<a href="{{ url('services') }}">Services</a>
+									<a href="{{ url($lang.'/courses') }}">All Courses</a>
+								</li>									
+								<li>
+									<a href="{{ url($lang.'/news') }}">News</a>
 								</li>
 								<li>
-									<a href="{{ url('contact-us') }}">contact us</a>
+									<a href="{{ url($lang.'/services') }}">Services</a>
+								</li>
+								<li>
+									<a href="{{ url($lang.'/contact-us') }}">Contact us</a>
 								</li>
 							</ul>
 						</div>
@@ -382,15 +345,15 @@
 <!-- footer end here -->
 
 <!-- jquery -->
-<script src="assets/front/js/jquery.2.1.1.min.js" type="text/javascript"></script>
+<script src="{{ url('assets/front/js/jquery.2.1.1.min.js') }}" type="text/javascript"></script>
 <!-- bootstrap js -->
-<script src="assets/front/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="{{ url('assets/front/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
 <!--bootstrap select-->
-<script src="assets/front/js/dist/js/bootstrap-select.js" type="text/javascript"></script>
+<script src="{{ url('assets/front/js/dist/js/bootstrap-select.js') }}" type="text/javascript"></script>
 <!-- owlcarousel js -->
-<script src="assets/front/js/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+<script src="{{ url('assets/front/js/owl-carousel/owl.carousel.min.js') }}" type="text/javascript"></script>
 <!--internal js-->
-<script src="assets/front/js/internal.js" type="text/javascript"></script>
+<script src="{{ url('assets/front/js/internal.js') }}" type="text/javascript"></script>
 
 @yield("js_files")
 

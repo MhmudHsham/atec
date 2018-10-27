@@ -1,19 +1,18 @@
 @extends("layouts.app")
 @section("content")
 
-
 <!-- bread-crumb start here -->
 <div class="bread-crumb">
 	<img src="{{ url('assets/front/images/banner-top.jpg') }}" class="img-responsive" alt="banner-top" title="banner-top">
 	<div class="container">
 		<div class="matter">
-			<h2>About us</h2>
+			<h2>register now</h2>
 			<ul class="list-inline">
 				<li>
 					<a href="{{ url($lang . '/') }}">HOME</a>
 				</li>
 				<li>
-					<a href="{{ url($lang . '/about-us') }}">About us</a>
+					<a href="{{ url($lang. '/login') }}">Login</a>
 				</li>
 			</ul>
 		</div>
@@ -21,38 +20,33 @@
 </div>
 <!-- bread-crumb end here -->
 
-<!-- abouts start here -->
-<div class="abouts">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12 col-xs-12">
-				<div class="commontop text-center">
-					<h2>About us</h2>
-					{{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br> incididunt ut labore et dolore magna aliqua.</p> --}}
-					<hr>
-				</div>
-			</div>	
-			<div class="col-sm-6 col-xs-12">
-				<p class="des">
-					{{ $settings['about_us_en'] }}					
-				</p>				
-			</div>
-			<div class="col-sm-6 col-xs-12">
-				<div class="image">
-					<img src="{{ url('uploads/images/obour.jpg') }}" class="img-responsive" alt="img" title="img" />
-					{{-- <div class="icon">
-						<div class="ico">
-							<a href="#"><i class="icofont icofont-ui-play"></i></a>
-						</div>
-					</div> --}}
-				</div>
-			</div>
+<!-- login start here -->
+<div class="login">
+	<div class="container"> 
+		<div class="col-md-12 col-sm-12 col-xs-12 box padd0">
+			<div class="col-md-12 col-sm-12 col-xs-12 bor">
+				<h5>sign in</h5>
+				<hr>
+				<form method="post" enctype="multipart/form-data">
+					<div class="form-group">	
+						<label>Email*</label>
+						<input type="text" name="email" value="" placeholder="Johndoe@example.com" id="input-email" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label>password*</label>
+						<input type="text" name="password" value="" placeholder="********" id="input-password" class="form-control" />
+					</div>
+					<div class="links">
+						<input type="checkbox"  name="credit" class="checkclass checkbox-inline"/>Remember me
+						<a href="#" class="pull-right">Forgot Password?</a>
+					</div>
+					<button type="submit" class="btn btn-primary btn-block" >Login Now</button>
+				</form>
+			</div>			
 		</div>
 	</div>
 </div>
-<!-- abouts end here -->
-
-
+<!-- login end here -->
 
 <!-- newsletter start here -->
 <div id="newsletter">
@@ -76,13 +70,4 @@
 </div>
 <!-- newsletter end here -->
 
-@stop
-
-@section("js_files")
-	<script>
-		var custom = {
-			subscribe_url: "{{ url('subscribe') }}"
-		};
-	</script>
-	<script src="assets/front/custom/js/home.js" type="text/javascript"></script>
 @stop
