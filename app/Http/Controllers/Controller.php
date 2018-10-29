@@ -27,10 +27,8 @@ class Controller extends BaseController
     
     public function loadSlug() {
         $data = array();
-        $data['question'] = "question_" . $this->_lang;
-        $data['answer'] = "answer_" . $this->_lang;
         $data['title'] = "title_" . $this->_lang;
-        $data['description'] = "description_" . $this->_lang;
+        $data['content'] = "content_" . $this->_lang;
         $slug = (object) $data;
         $this->_slug = $slug;
     }

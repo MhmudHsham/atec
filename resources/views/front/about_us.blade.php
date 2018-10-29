@@ -27,8 +27,7 @@
 		<div class="row">
 			<div class="col-sm-12 col-xs-12">
 				<div class="commontop text-center">
-					<h2>About us</h2>
-					{{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br> incididunt ut labore et dolore magna aliqua.</p> --}}
+					<h2>{{ trans("lang.About us") }}</h2>
 					<hr>
 				</div>
 			</div>	
@@ -39,12 +38,7 @@
 			</div>
 			<div class="col-sm-6 col-xs-12">
 				<div class="image">
-					<img src="{{ url('uploads/images/obour.jpg') }}" class="img-responsive" alt="img" title="img" />
-					{{-- <div class="icon">
-						<div class="ico">
-							<a href="#"><i class="icofont icofont-ui-play"></i></a>
-						</div>
-					</div> --}}
+					<img src="{{ url('public/uploads/images/obour.jpg') }}" class="img-responsive" alt="img" title="img" />
 				</div>
 			</div>
 		</div>

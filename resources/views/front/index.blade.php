@@ -5,7 +5,7 @@
 	<div class="slideshow owl-carousel">
 		@foreach($sliders as $one)
 		<div class="item">
-			<img style="height: 500px;" src="{{ url('/uploads/images/' . $one->image) }}" alt="banner" title="banner" class="img-responsive"/>
+			<img style="height: 500px;" src="{{ url('/public/uploads/images/' . $one->image) }}" alt="banner" title="banner" class="img-responsive"/>
 		</div>
 		@endforeach
 	</div>
@@ -14,7 +14,7 @@
 		<div class="container">
 			<div class="matter">
 				{{-- <p class="text">Get started with online education</p> --}}
-				<h4>{{ $sliders[0]->title_en }}</h4>
+				<h4>{{ $sliders[0]->{$slug->title} }}</h4>
 				{{-- <p class="des">Lorem ipsum dolor sit amet, consectetur adipiscing elit. ut et nulla erat. Nunc lacinia eros neque, eget fringilla dui ullamcorper vitae. vivamus at turpis condimentum.</p> --}}
 			</div>
 		</div>
@@ -40,11 +40,11 @@
 			<div class="col-sm-3 col-xs-12 box text-center">
 				<div class="icons">
 					<div class="icon">
-						<img src="{{ url('uploads/images/' . $one->image) }}" class="img-responsive" alt="{{ $one->title_en }}" title="{{ $one->title_en }}" />
+						<img src="{{ url('uploads/images/' . $one->image) }}" class="img-responsive" alt="{{ $one->{$slug->title} }}" title="{{ $one->{$slug->title} }}" />
 					</div>
 				</div>
-				<h4>{{ $one->title_en }}</h4>
-				<p>{{ substr($one->content_en, 0, 150) }}</p>
+				<h4>{{ $one->{$slug->title} }}</h4>
+				<p>{{ substr($one->{$slug->content}, 0, 150) }}</p>
 			</div>
 			@endforeach
 
@@ -116,14 +116,14 @@
 					<div class="col-sm-12 col-xs-12">
 						<div class="product-thumb">
 							<div class="image">
-								<a href="{{ url('courses/details/' . $one->id . '/' . str_replace(' ', '-', $one->title_en)) }}">
-									<img src="{{ url('uploads/images/' . $one->image) }}" class="img-responsive" alt="img" title="img" />
+								<a href="{{ url('courses/details/' . $one->id . '/' . str_replace(' ', '-', $one->{$slug->title})) }}">
+									<img src="{{ url('uploads/images/' . $one->image) }}" class="img-responsive" alt="{{ $one->{$slug->title} }}" title="{{ $one->{$slug->title} }}" />
 								</a>
 							</div>
 							<div class="caption">
 								<h3>Technology </h3>
-								<h4>{{ $one->title_en }}</h4>
-								<p>{{ substr($one->content_en, 0, 150) }}</p>
+								<h4>{{ $one->{$slug->title} }}</h4>
+								<p>{{ substr($one->{$slug->content}, 0, 150) }}</p>
 								{{-- <ul class="list-inline">
 									<li>
 										<a href="#"><i class="icofont icofont-ui-user"></i>15</a>
@@ -231,8 +231,8 @@
 			<div class="col-sm-4 col-xs-12">
 				<div class="box">
 					<div class="image">
-						<a href="{{ url('news/details/' . $one->id . '/' . str_replace(' ', '-', $one->title)) }}">
-							<img src="{{ url('uploads/images/' . $one->image) }}" class="img-responsive" alt="{{ $one->title }}" title="{{ $one->title }}" />
+						<a href="{{ url('news/details/' . $one->id . '/' . str_replace(' ', '-', $one->{$slug->title})) }}">
+							<img src="{{ url('uploads/images/' . $one->image) }}" class="img-responsive" alt="{{ $one->{$slug->title} }}" title="{{ $one->{$slug->title} }}" />
 						</a>
 					</div>
 					<div class="caption">
@@ -244,8 +244,8 @@
 								<a href="#"><i class="icofont icofont-comment"></i>10</a>
 							</li>
 						</ul>
-						<h3>{{ $one->title_en }}</h3>
-						<h4>{{ substr($one->content_en, 0, 80) }}</h4>
+						<h3>{{ $one->{$slug->title} }}</h3>
+						<h4>{{ substr($one->{$slug->content}, 0, 80) }}</h4>
 					</div>
 				</div>
 			</div>

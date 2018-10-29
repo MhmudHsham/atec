@@ -4,7 +4,7 @@
 
 <!-- bread-crumb start here -->
 <div class="bread-crumb">
-	<img src="{{ url('assets/front/images/banner-top.jpg') }}" class="img-responsive" alt="banner-top" title="banner-top">
+	<img src="{{ url('public/assets/front/images/banner-top.jpg') }}" class="img-responsive" alt="banner-top" title="banner-top">
 	<div class="container">
 		<div class="matter">
 			<h2>Our Blog</h2>
