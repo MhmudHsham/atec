@@ -2,23 +2,28 @@
 @section("page_title", "معرض الصور")
 @section("page_header_title", "")
 @section("page_level_styles")
-<link href="{!! url('assets/admin/global/plugins/bootstrap-toastr/toastr.min.css') !!}" rel="stylesheet" type="text/css" />
-<link href="{!! url('assets/admin/global/plugins/icheck/skins/all.css') !!}" rel="stylesheet" type="text/css" />
+<link href="{!! url('public/assets/admin/global/plugins/bootstrap-toastr/toastr.min.css') !!}" rel="stylesheet" type="text/css" />
+<link href="{!! url('public/assets/admin/global/plugins/icheck/skins/all.css') !!}" rel="stylesheet" type="text/css" />
 @stop
 @section("page_level_script_plugins")
-<script src="{!! url('assets/admin/global/plugins/bootstrap-toastr/toastr.min.js') !!}" type="text/javascript"></script>
-<script src="{!! url('assets/admin/global/plugins/icheck/icheck.min.js') !!}" type="text/javascript"></script>
+<script src="{!! url('public/assets/admin/global/plugins/bootstrap-toastr/toastr.min.js') !!}" type="text/javascript"></script>
+<script src="{!! url('public/assets/admin/global/plugins/icheck/icheck.min.js') !!}" type="text/javascript"></script>
 @stop
 @section("page_level_scripts")
-<script src="{!! url('assets/admin/pages/scripts/ui-toastr.min.js') !!}" type="text/javascript"></script>
-<script src="{!! url('assets/admin/mine/generic.js') !!}"></script>
-<script src="{!! url('assets/admin/mine/gallery.js') !!}"></script>
+<script src="{!! url('public/assets/admin/pages/scripts/ui-toastr.min.js') !!}" type="text/javascript"></script>
+{{-- <script src="{!! url('public/assets/admin/mine/generic.js') !!}"></script> --}}
+<script src="{!! url('public/assets/admin/mine/gallery.js') !!}"></script>
 @stop
 
 @section("content")
 <div class="row">
     <div class="col-md-12">
         <div class="portlet light portlet-fit bordered">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="portlet-title">
                 <div class="caption">
                     <i class=" icon-layers font-green"></i>
@@ -68,7 +73,7 @@
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 tr_{{$one->id}}">
                             <div class="mt-card-item">
                                 <div class="mt-card-avatar mt-overlay-1">
-                                    <img src="{{ url('/uploads/gallery/'.$one->image) }}" />
+                                    <img src="{{ url('public/uploads/images/'.$one->image) }}" />
                                     <div class="mt-overlay">
                                         <ul class="mt-info">
                                             <li>                                                

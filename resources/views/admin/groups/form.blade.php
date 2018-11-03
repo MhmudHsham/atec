@@ -53,7 +53,12 @@
                                 <span class="required">*</span>
                             </label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" placeholder="" name="title" id="title">
+                                @if(isset($data->title))
+                                @php($value = $data->title)
+                                @else 
+                                @php($value = "")
+                                @endif
+                                <input type="text" class="form-control" value="{{ $value }}" placeholder="" name="title" id="title" >
                                 <div class="form-control-focus"> </div>
                                 <span class="help-block">ادخل إسم المجموعة </span>
                             </div>

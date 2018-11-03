@@ -19,6 +19,6 @@ class SettingsController extends Controller
                 continue;
             Setting::where("setting_key", $key)->update(["setting_value" => $one]);
         }
-        return redirect('admin/settings');
+        return redirect('admin/settings')->with("status", "تم تحديث الإعدادات بنجاح");
     }
 }

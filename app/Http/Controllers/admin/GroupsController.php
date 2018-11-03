@@ -29,7 +29,7 @@ class GroupsController extends Controller
     {
         $id = 0;
         $pages = Page::all();
-        $permissions = array();
+        $permissions = [];
         return view("admin.groups.form", compact("id", "permissions", "pages"));
     }
 
@@ -77,7 +77,10 @@ class GroupsController extends Controller
         $pages = \App\Page::all();
         $data = Group::find($id);
         $permissions = json_decode($data->permissions);
-        return view("admin.groups.form", compact("id", "pages", "permissions"));
+        if(!$permissions) {
+            $permissions = [];
+        }
+        return view("admin.groups.form", compact("id", "pages", "permissions", "data"));
     }
 
     /**

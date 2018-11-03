@@ -20,14 +20,15 @@ class GroupPermission {
         return $next($request);
     }
 
-    public function checkNumber($path) {
+    public function checkNumber($path) {        
         $paths = explode("/", $path);
-        if (is_numeric(end($paths))) {
-            array_pop($paths);
-            $path = implode("/", $paths);
-            $this->checkNumber($path);
+        $new_path = "";
+        foreach($paths as $path) {
+            if(!is_numeric($path)) {
+                $new_path .= $path . "/"; 
+            }
         }
-        return $path;
+        return trim($new_path, "/");        
     }
 
     public function filterPath($path) { 

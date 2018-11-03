@@ -14,7 +14,11 @@
     <div class="col-md-12">
         <!-- BEGIN VALIDATION STATES-->
         <div class="portlet light portlet-fit portlet-form bordered">
-
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="portlet-body">
                 <!-- BEGIN FORM   -->
                 <form action="{{ url('/admin/store_settings') }}" class="form-horizontal" id="settings_form" method="post">

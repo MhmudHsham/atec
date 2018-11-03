@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::group(["middleware"=>["auth"], "prefix" => "admin"], function() {
+Route::group(["middleware"=>["auth", "permission"], "prefix" => "admin"], function() {
     Route::get('/settings', 'admin\SettingsController@index');
     Route::post('/store_settings', 'admin\SettingsController@store');
 

@@ -29,7 +29,7 @@ class GalleriesController extends Controller
     {
         $file = $request->file('image');
         foreach($file as $one) {
-            $destinationPath = 'uploads/gallery';
+            $destinationPath = 'public/uploads/images';
             $file_name = md5(date("Y-m-d h:i:s")) . "." .$one->getClientOriginalExtension();
             Gallery::create([
                 "image" => $file_name
@@ -45,8 +45,9 @@ class GalleriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function show($id)
     {
-        Gallery::find($id)->delete();        
+        Gallery::find($id)->delete();      
+        return redirect()->back()->with("status", "تم حذف الصورة بنجاح");
     }
 }
