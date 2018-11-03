@@ -9,21 +9,21 @@
         <meta content="" name="author" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-        <link href="{{ url('assets/admin/global/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ url('assets/admin/global/plugins/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ url('assets/admin/global/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ url('assets/admin/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/assets/admin/global/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/assets/admin/global/plugins/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/assets/admin/global/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/assets/admin/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <link href="{{ url('assets/admin/global/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ url('assets/admin/global/plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/assets/admin/global/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/assets/admin/global/plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="{{ url('assets/admin/global/css/components.min.css') }}" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="{{ url('assets/admin/global/css/plugins.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/assets/admin/global/css/components.min.css') }}" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="{{ url('public/assets/admin/global/css/plugins.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
         <!-- BEGIN PAGE LEVEL STYLES -->
-        <link href="{{ url('assets/admin/pages/css/login-5.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/assets/admin/pages/css/login-5.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <!-- END THEME LAYOUT STYLES -->
@@ -35,8 +35,8 @@
         <div class="user-login-5">
             <div class="row bs-reset">
                 <div class="col-md-6 bs-reset mt-login-5-bsfix">
-                    <div class="login-bg" style="background-image:url({{ url('uploads/images/obour.jpg') }})">
-                        <img style="width:20%;" class="login-logo" src="{{ url('uploads/images/logo.jpg') }}" /> 
+                    <div class="login-bg" style="background-image:url({{ url('public/uploads/images/obour.jpg') }})">
+                        <img style="width:20%;" class="login-logo" src="{{ url('public/uploads/images/logo.jpg') }}" /> 
                     </div>
                 </div>
                 <div class="col-md-6 login-container bs-reset mt-login-5-bsfix">
@@ -120,29 +120,29 @@
         </div>
         <!-- END : LOGIN PAGE 5-1 -->
         <!--[if lt IE 9]>
-<script src="{{ url('assets/admin/global/plugins/respond.min.js') }}"></script>
-<script src="{{ url('assets/admin/global/plugins/excanvas.min.js') }}"></script> 
-<script src="{{ url('assets/admin/global/plugins/ie8.fix.min.js') }}"></script> 
+<script src="{{ url('public/assets/admin/global/plugins/respond.min.js') }}"></script>
+<script src="{{ url('public/assets/admin/global/plugins/excanvas.min.js') }}"></script> 
+<script src="{{ url('public/assets/admin/global/plugins/ie8.fix.min.js') }}"></script> 
 <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
-        <script src="{{ url('assets/admin/global/plugins/jquery.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('assets/admin/global/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('assets/admin/global/plugins/js.cookie.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('assets/admin/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('assets/admin/global/plugins/jquery.blockui.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('assets/admin/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/assets/admin/global/plugins/jquery.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/assets/admin/global/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/assets/admin/global/plugins/js.cookie.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/assets/admin/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/assets/admin/global/plugins/jquery.blockui.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/assets/admin/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}" type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <script src="{{ url('assets/admin/global/plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('assets/admin/global/plugins/jquery-validation/js/additional-methods.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('assets/admin/global/plugins/select2/js/select2.full.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('assets/admin/global/plugins/backstretch/jquery.backstretch.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/assets/admin/global/plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/assets/admin/global/plugins/jquery-validation/js/additional-methods.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/assets/admin/global/plugins/select2/js/select2.full.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/assets/admin/global/plugins/backstretch/jquery.backstretch.min.js') }}" type="text/javascript"></script>
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
-        <script src="{{ url('assets/admin/global/scripts/app.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/assets/admin/global/scripts/app.min.js') }}" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="{{ url('assets/admin/pages/scripts/login-5.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/assets/admin/pages/scripts/login-5.min.js') }}" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <!-- END THEME LAYOUT SCRIPTS -->

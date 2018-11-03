@@ -6,6 +6,7 @@ use App\Slider;
 use App\Service;
 use App\Course;
 use App\News;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -30,5 +31,11 @@ class HomeController extends Controller
 
     public function about_us() {
         return view("front.about_us");
+    }
+
+    public function setSubscriber() {
+        echo 'ddd'; 
+// echo $request->subscribe_email;
+die();
     }
 }

@@ -63,7 +63,8 @@ Route::group([
     Route::get(LaravelLocalization::transRoute('services/details/{service_id}'), 'ServicesController@details');
     Route::get(LaravelLocalization::transRoute('news'), 'NewsController@index');
     Route::get(LaravelLocalization::transRoute('news/details/{news_id}'), 'NewsController@details');
-    Route::get(LaravelLocalization::transRoute('login'), 'UsersController@loginView');
+    Route::get(LaravelLocalization::transRoute('student/login'), 'UsersController@loginView');
     Route::get(LaravelLocalization::transRoute('courses'), 'CoursesController@index');
 });
 
+Route::get('subscribe'. 'HomeController@setSubscriber');

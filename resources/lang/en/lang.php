@@ -13,5 +13,8 @@ return [
     "Services" => "Services",
     "Contact us" => "Contact us",
     "Lang" => "Lang",
+    "Subscribe to our newsletter" => "Subscribe to our newsletter",
+    "Type your e-mail..." => "Type your e-mail...",
+    "Submit"  => "Submit",
 
 ];

@@ -13,5 +13,8 @@ return [
     "Services" => "الخدمات",
     "Contact us" => "اتصل بنا",
     "Lang" => "اللغة",
+    "Subscribe to our newsletter" => "إنضم إلينا الآن ليصلك كل جديد",
+    "Type your e-mail..." => "ادخل بريدك الإلكترونى ... ",
+    "Submit"  => "إرسال",
     
 ];

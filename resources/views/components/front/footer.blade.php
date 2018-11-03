@@ -1,3 +1,27 @@
+<!-- newsletter start here -->
+<div id="newsletter">
+	<div class="container">
+		<div class="row">
+			<div id="subscribe">
+				<form class="form-horizontal" name="subscribe" id="subscribe-form">
+					<div class="col-sm-12"> 
+						<p class="news">{{ trans("lang.Subscribe to our newsletter") }}</p>
+					</div>
+					<div class="col-sm-12 form-group">
+						<div class="input-group">
+							<input  value="" name="subscribe_email" id="subscribe_email" placeholder="{{ trans('lang.Type your e-mail...') }}" type="text">
+							<button class="btn btn-news" type="submit" value="submit">{{ trans("lang.Submit") }}</button>
+						</div>
+					</div>
+				</form>
+			</div> 
+		</div>
+	</div>
+</div>
+<!-- newsletter end here -->
+
+
+
 <!-- footer start here -->
 <footer>
 	<div class="container">
@@ -139,3 +163,9 @@
 <script src="{{ url('public/assets/front/js/owl-carousel/owl.carousel.min.js') }}" type="text/javascript"></script>
 <!--internal js-->
 <script src="{{ url('public/assets/front/js/internal.js') }}" type="text/javascript"></script>
+<script>
+	var custom = {
+		subscribe_url: "{{ url('subscribe') }}"
+	};
+</script>
+<script src="{{ url('public/assets/front/custom/js/app.js') }}" type="text/javascript"></script>

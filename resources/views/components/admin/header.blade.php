@@ -4,7 +4,7 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="{{ url('/') }}">
-                <img style="width:50%;margin:0!important;" src="{{ url('/uploads/images/logo.jpg') }}" alt="logo" class="logo-default" /> </a>
+                <img style="width:50%;margin:0!important;" src="{{ url('public/uploads/images/logo.jpg') }}" alt="logo" class="logo-default" /> </a>
             <!-- <div class="menu-toggler sidebar-toggler">
                 <span></span>
             </div> -->
@@ -19,11 +19,11 @@
         <div class="top-menu">
             <ul class="nav navbar-nav pull-right">            
                 @php($name = Auth::user()->name)
-                @php($user_id = Auth::user()->id)
-                @php($image = \App\Instructor::where("user_id", $user_id)->pluck("image")[0])                
+                @php($user_id = Auth::user()->id)                
+                @php($image = \App\Instructor::where("user_id", $user_id)->pluck("image"))[0]
                 <li class="dropdown dropdown-user">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <img alt="" class="img-circle" src="{{ url('/uploads/images') . '/' . $image }}" />
+                        <img alt="" class="img-circle" src="{{ url('public/uploads/images') . '/' . $image }}" />
                         <span class="username username-hide-on-mobile"> {{ $name }} </span>
                         <i class="fa fa-angle-down"></i>
                     </a>

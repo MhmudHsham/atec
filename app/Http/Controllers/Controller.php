@@ -16,9 +16,9 @@ class Controller extends BaseController
     public $_slug;
 
     public function __construct() {
-        $settings = Setting::pluck("setting_value", "setting_key");             
+        $settings = Setting::pluck("setting_value", "setting_key");                     
         $this->_lang = $currentLocale = app('laravellocalization')->getCurrentLocale();        
-        $this->loadSlug();
+        $this->loadSlug();        
         view()->share("lang", $currentLocale);
         view()->share("slug", $this->_slug);
         view()->share("settings", $settings);
