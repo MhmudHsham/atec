@@ -1,17 +1,17 @@
 @extends("layouts.admin")
-@section("page_title", 'إضافة خدمة جديد')
+@section("page_title", 'إضافة سلايدر جديد')
 @section("page_header_title", "")
 @section("page_level_styles")
-<link href="{!! url('assets/admin/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css') !!}" rel="stylesheet" type="text/css" />
+<link href="{!! url('public/assets/admin/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css') !!}" rel="stylesheet" type="text/css" />
 @end
 @section("page_level_script_plugins")
-<script src="{!! url('assets/admin/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js') !!}" type="text/javascript"></script>
-<script src="{!! url('assets/admin/global/plugins/jquery-validation/js/jquery.validate.min.js') !!}" type="text/javascript"></script>
-<script src="{!! url('assets/admin/global/plugins/jquery-validation/js/additional-methods.min.js') !!}" type="text/javascript"></script>
+<script src="{!! url('public/assets/admin/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js') !!}" type="text/javascript"></script>
+<script src="{!! url('public/assets/admin/global/plugins/jquery-validation/js/jquery.validate.min.js') !!}" type="text/javascript"></script>
+<script src="{!! url('public/assets/admin/global/plugins/jquery-validation/js/additional-methods.min.js') !!}" type="text/javascript"></script>
 @stop
 @section("page_level_scripts")
-<script src="{!! url('assets/admin/pages/scripts/form-validation-md.min.js') !!}" type="text/javascript"></script>
-<script src="{!! url('assets/admin/mine/generic.js') !!}" type="text/javascript"></script>
+<script src="{!! url('public/assets/admin/pages/scripts/form-validation-md.min.js') !!}" type="text/javascript"></script>
+<script src="{!! url('public/assets/admin/mine/generic.js') !!}" type="text/javascript"></script>
 <script>
     var custom_config = {
         messages: {

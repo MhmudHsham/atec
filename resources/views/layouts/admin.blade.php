@@ -118,10 +118,10 @@
         <div class="quick-nav-overlay"></div>
         <!-- END QUICK NAV -->
         <!--[if lt IE 9]>
-<script src="{!! url('public/assets/admin/global/plugins/respond.min.js') !!}"></script>
-<script src="{!! url('public/assets/admin/global/plugins/excanvas.min.js') !!}"></script>
-<script src="{!! url('public/assets/admin/global/plugins/ie8.fix.min.js') !!}"></script>
-<![endif]-->
+        <script src="{!! url('public/assets/admin/global/plugins/respond.min.js') !!}"></script>
+        <script src="{!! url('public/assets/admin/global/plugins/excanvas.min.js') !!}"></script>
+        <script src="{!! url('public/assets/admin/global/plugins/ie8.fix.min.js') !!}"></script>
+        <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
         <script src="{!! url('public/assets/admin/global/plugins/jquery.min.js') !!}" type="text/javascript"></script>
         <script src="{!! url('public/assets/admin/global/plugins/bootstrap/js/bootstrap.min.js') !!}" type="text/javascript"></script>

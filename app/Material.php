@@ -12,7 +12,7 @@ class Material extends Model
 
     protected $dates = ['deleted_at'];
 
-    protected $fillable = ['title_ar', 'title_en', 'content_ar', 'content_en', 'image', "file", "video", "course_id"];
+    protected $fillable = ['title_ar', 'title_en', 'content_ar', 'content_en', 'image', "file", "video", "course_id", "instructor_id"];
     
     public function course() {
         return $this->belongsTo("App\Course", "course_id");

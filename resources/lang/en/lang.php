@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return [
     "Help Center" => "Help Center",
@@ -15,6 +15,9 @@ return [
     "Lang" => "Lang",
     "Subscribe to our newsletter" => "Subscribe to our newsletter",
     "Type your e-mail..." => "Type your e-mail...",
-    "Submit"  => "Submit",
+    "Submit" => "Submit",
+    "our best service for you" => "our best service for you",
+    "our best popular courses for you" => "our best popular courses for you",
+    "get in touch" => "get in touch",
 
 ];

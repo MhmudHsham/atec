@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Material;
+use Auth;
 
 class MaterialsController extends Controller
 {
@@ -49,14 +50,14 @@ class MaterialsController extends Controller
         if (isset($request->logo) && $request->logo != "") {
             $image = $request->file('logo');
             $logo = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/uploads/images');
+            $destinationPath = public_path('uploads/images');
             $image->move($destinationPath, $logo);
         }
 
         if (isset($request->file) && $request->file != "") {
             $uploaded_file = $request->file('file');
             $file = time() . '.' . $uploaded_file->getClientOriginalExtension();
-            $destinationPath2 = public_path('/uploads/materials');
+            $destinationPath2 = public_path('uploads/materials');
             $uploaded_file->move($destinationPath, $file);
         }
  
@@ -71,10 +72,9 @@ class MaterialsController extends Controller
         }
         $data['video'] = $request->video;
         $data['course_id'] = $course_id = $request->course_id;
-        $data['content_ar'] = $request->content_ar;
-        $data['content_en'] = $request->content_en;
         $data['instructor_id'] = Auth::user()->id;
-
+        $data['content_ar'] = $request->content_ar;
+        $data['content_en'] = $request->content_en;        
         $update = Material::create($data);
 
         if($update) {
@@ -125,14 +125,14 @@ class MaterialsController extends Controller
         if (isset($request->logo) && $request->logo != "") {
             $image = $request->file('logo');
             $logo = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/uploads/images');
+            $destinationPath = public_path('uploads/images');
             $image->move($destinationPath, $logo);
         }
 
         if (isset($request->file) && $request->file != "") {
             $uploaded_file = $request->file('file');
             $file = time() . '.' . $uploaded_file->getClientOriginalExtension();
-            $destinationPath2 = public_path('/uploads/materials');
+            $destinationPath2 = public_path('uploads/materials');
             $uploaded_file->move($destinationPath, $file);
         }
  

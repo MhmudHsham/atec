@@ -20,7 +20,7 @@ var Generic = function() {
             success: function(msg) {
                 for (var i in msg) {
                     if(i == "image") {
-                        var img_src = config.base_url + "/uploads/images/" + msg[i];
+                        var img_src = config.base_url + "/public/uploads/images/" + msg[i];
                         $(".thumbnail").html("<img src='" + img_src + "' />");
                     } else {
                         $("#" + i).val(msg[i]);
