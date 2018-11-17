@@ -30,33 +30,43 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-9 col-xs-12">
-                    <form method="post" action="{{ url('contact-us') }}" id="contact-us-form"
+                    @if($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif   
+                    
+                    @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+                    
+                    <form method="post" action="{{ url('post-contact-us') }}" id="contact-us-form"
                           enctype="multipart/form-data" class="form-horizontal">
+                          {{ csrf_field() }}
                         <h5>{{ trans("lang.get in touch") }}</h5>
                         <hr/>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <label>Name*</label>
-                                <input name="name" value="" id="input-name" class="form-control" placeholder="John doe"
+                                <input name="name" value="" id="name" class="form-control" placeholder="John doe"
                                        type="text">
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <label>Email*</label>
-                                <input name="email" value="" id="input-email" class="form-control"
+                                <input name="email" value="" id="email" class="form-control"
                                        placeholder="Johndoe@example.com" type="text">
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <label>Website*</label>
-                                <input name="phone" value="" id="input-phone" class="form-control"
-                                       placeholder="www.example.com" type="text">
-                            </div>
-                        </div>
+                        </div>                        
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <label>Message*</label>
-                                <textarea name="enquiry" id="input-enquiry" class="form-control"></textarea>
+                                <textarea name="message" id="message" class="form-control"></textarea>
                             </div>
                         </div>
                         <input class="btn btn-primary" value="Send Message" type="submit">
@@ -64,26 +74,28 @@
                 </div>
                 <div class="col-sm-3 col-xs-12">
                     <div class="address">
-                        <h5>Contact Info</h5>
+                        <h5>{{ trans("lang.Contact Info") }}</h5>
                         <hr>
-                        <p>Nunc quis viverra nibh. Etiam mauris leo, consequat ut tincidunt ac, lobortis consequat
-                            ligula.</p>
                         <ul class="list-unstyled">
                             <li>
-                                <i class="icofont icofont-home"></i> 14/3 Samrala Chownk, Main Road, Ludhiana 141001,
-                                India.
+                                <i class="icofont icofont-home"></i> 
+                                @if($lang == "en")
+                                {{ $settings['address_en'] }}
+                                @else 
+                                {{ $settings['address_ar'] }}
+                                @endif
                             </li>
                             <li>
-                                <i class="icofont icofont-phone"></i> +91 123 456 7890
+                                <i class="icofont icofont-phone"></i> {{ $settings['phone'] }}
                             </li>
                             <li>
-                                <i class="icofont icofont-fax"></i> +00 123 456 7890
+                                <i class="icofont icofont-fax"></i> {{ $settings['mobile'] }}
                             </li>
                             <li>
-                                <i class="icofont icofont-envelope"></i> <a href="#">educourses@example.com</a>
+                                <i class="icofont icofont-envelope"></i> {{ $settings['email'] }}
                             </li>
                             <li>
-                                <i class="icofont icofont-globe"></i> <a href="#">www.educourses.com</a>
+                                <i class="icofont icofont-globe"></i> <a target="_blank" href="{{ $settings['website'] }}">{{ $settings['website'] }}</a>
                             </li>
                         </ul>
                     </div>
@@ -101,12 +113,4 @@
             subscribe_url: "{{ url('subscribe') }}"
         };
     </script>
-    {{--	<script src="{{ url('public/assets/front/custom/js/home.js') }}" type="text/javascript"></script>--}}
-    <script type="text/javascript">
-        $("#contact-us-form").submit(function (e) {
-            e.preventDefault();
-            alert();
-        });
-    </script>
-    {{--<script src="{{ url('public/assets/front/custom/js/contact_us.js') }}" type="text/javascript"></script>--}}
 @stop

@@ -68,3 +68,4 @@ Route::group([
 });
 
 Route::get('subscribe'. 'HomeController@setSubscriber');
+Route::post('post-contact-us', 'ContactusController@store');
