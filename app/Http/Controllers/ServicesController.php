@@ -14,6 +14,7 @@ class ServicesController extends Controller
 
     public function details($id) {
         $details = Service::find($id);
-        return view("front.services.details", compact("details"));
+        $latest_services = Service::orderBy("id", "asc")->limit(10)->get();
+        return view("front.services.details", compact("details", "latest_services"));
     }
 }

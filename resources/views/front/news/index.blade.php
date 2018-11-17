@@ -26,7 +26,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3 col-xs-12 hidden-xs">
-				<div class="left">
+				{{--  <div class="left">
 					<h4>SEARCH</h4>
 					<div class="search">
 						<form class="form-horizontal" method="post">
@@ -40,8 +40,8 @@
 							</fieldset>
 						</form>
 					</div>
-				</div>	
-				<div class="left">
+				</div>	  --}}
+				{{--  <div class="left">
 					<h4>CATEGORIES</h4>
 					<div class="filter">
 						<ul class="list-unstyled">
@@ -68,33 +68,21 @@
 							</li>
 						</ul>
 					</div>
-				</div>
+				</div>  --}}
 				<div class="left">
 					<h4>LATEST BLOGS</h4>
 					<div class="popular">
+						
+						@foreach($latest_news as $one) 
 						<div class="box">
-							<img src="images/p1.jpg" class="img-responsive" alt="img" title="img" />
-							<p>Introduction to Mobile Application Develop..</p>
+							<img src="{{ url('public/uploads/images/' . $one->image) }}" class="img-responsive" alt="img" title="img" />
+							<p><a href="{{ url($lang.'/news/details/' . $one->id) }}">{{ $one->{$slug->title} }}</a></p>
 						</div>
-						<div class="box">
-							<img src="images/p2.jpg" class="img-responsive" alt="img" title="img" />
-							<p>Introduction to PHP Website Development</p>
-						</div>
-						<div class="box">
-							<img src="images/p3.jpg" class="img-responsive" alt="img" title="img" />
-							<p>Android Application Development</p>
-						</div>
-						<div class="box">
-							<img src="images/p1.jpg" class="img-responsive" alt="img" title="img" />
-							<p>Introduction to Mobile Application Develop..</p>
-						</div>
-						<div class="box">
-							<img src="images/p2.jpg" class="img-responsive" alt="img" title="img" />
-							<p>Introduction to PHP Website Development</p>
-						</div>
+						@endforeach
+						
 					</div>
 				</div>	
-				<div class="left">
+				{{--  <div class="left">
 					<h4>ARCHIVES</h4>
 					<div class="archive">
 						<div class="form-group">
@@ -108,8 +96,8 @@
 							</select>
 						</div>
 					</div>
-				</div>	
-				<div class="left">
+				</div>	  --}}
+				{{--  <div class="left">
 					<h4>TAGS</h4>
 					<div class="tag">
 						<ul class="list-inline">
@@ -133,7 +121,7 @@
 							</li>
 						</ul>
 					</div>
-				</div>	
+				</div>	  --}}
 			</div>
 			<div class="col-sm-9 col-xs-12">
 
@@ -144,8 +132,8 @@
                 @foreach($news as $one)
 				<div class="box">
 					<div class="image">
-						<a href="{{ url('news/details/' . $one->id) }}">
-							<img style="width:850px;height:390px;" src="{{ url('uploads/images/' . $one->image) }}" class="img-responsive" alt="img" title="img" />
+						<a href="{{ url($lang.'/news/details/' . $one->id) }}">
+							<img style="width:850px;height:390px;" src="{{ url('public/uploads/images/' . $one->image) }}" class="img-responsive" alt="img" title="img" />
 						</a>
 					</div>
 					<div class="caption">
@@ -159,8 +147,8 @@
 								{{-- <a href="#"><i class="icofont icofont-comment"></i>10</a> --}}
 							</li>
 						</ul>
-						<h3>{{ $one->title_en }}</h3>
-						<h4>{{ substr($one->content_en, 0, 150) }}</h4>
+						<h3>{{ $one->{$slug->title} }}</h3>
+						<h4>{{ substr($one->{$slug->content}, 0, 150) }}</h4>
 					</div>
 				</div>
 				@endforeach
@@ -181,28 +169,6 @@
 	</div>
 </div>
 <!-- blog end here -->
-
-<!-- newsletter start here -->
-<div id="newsletter">
-	<div class="container">
-		<div class="row">
-			<div id="subscribe">
-				<form class="form-horizontal" name="subscribe">
-					<div class="col-sm-12"> 
-						<p class="news">SUBSCribe to our <span>newsletter</span></p>
-					</div>
-					<div class="col-sm-12 form-group">
-						<div class="input-group">
-							<input  value="" name="subscribe_email" id="subscribe_email" placeholder="Type your e-mail..." type="text">
-							<button class="btn btn-news" type="submit" value="submit">Submit</button>
-						</div>
-					</div>
-				</form>
-			</div> 
-		</div>
-	</div>
-</div>
-<!-- newsletter end here -->
 
 @stop
 

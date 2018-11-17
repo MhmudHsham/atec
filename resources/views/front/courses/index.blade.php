@@ -6,13 +6,13 @@
 	<img src="{{  url('public/assets/front/images/banner-top.jpg') }}" class="img-responsive" alt="banner-top" title="banner-top">
 	<div class="container">
 		<div class="matter">
-			<h2>All Courses</h2>
+			<h2>{{ trans("lang.All Courses") }}</h2>
 			<ul class="list-inline">
 				<li>
-					<a href="{{ url($lang . '/') }}">HOME</a>
+					<a href="{{ url($lang . '/') }}">{{ trans("lang.Home") }}</a>
 				</li>
 				<li>
-					<a href="{{ url($lang . 'courses') }}">All Courses</a>
+					<a href="{{ url($lang . 'courses') }}">{{ trans("lang.All Courses") }}</a>
 				</li>
 			</ul>
 		</div>
@@ -25,7 +25,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3 col-xs-12 hidden-xs">
-				<div class="left">
+				{{--  <div class="left">
 					<h4>SEARCH</h4>
 					<div class="search">
 						<form class="form-horizontal" method="post">
@@ -39,8 +39,8 @@
 							</fieldset>
 						</form>
 					</div>
-				</div>	
-				<div class="left">
+				</div>	  --}}
+				{{--  <div class="left">
 					<h4>FILTERS</h4>
 					<div class="filter">
 						<ul class="list-unstyled">
@@ -82,45 +82,27 @@
 						</ul>
 					</div>
 					<h3>SEARCH FILTERS</h3>
-				</div>
+				</div>  --}}
 				<div class="left">
-					<h4>POPULAR COURSES</h4>
+					<h4>{{ trans("lang.Other Courses") }}</h4>
 					<div class="popular">
+						@foreach($latest_courses as $one)
 						<div class="box">
-							<img src="images/p1.jpg" class="img-responsive" alt="img" title="img" />
-							<p>Introduction to Mobile Application Develop..</p>
-							<span>$39.00</span>
+							<img src="{{ url('public/uploads/images/' . $one->image) }}" class="img-responsive" alt="img" title="img" />
+							<p><a href="{{ url($lang.'/courses/details/'.$one->id) }}">{{ $one->{$slug->title} }}</a></p>
+							<span>{{ $one->year->year }}</span>
 						</div>
-						<div class="box">
-							<img src="images/p2.jpg" class="img-responsive" alt="img" title="img" />
-							<p>Introduction to PHP Website Development</p>
-							<span class="color">Free</span>
-						</div>
-						<div class="box">
-							<img src="images/p3.jpg" class="img-responsive" alt="img" title="img" />
-							<p>Android Application Development</p>
-							<span>$39.00</span>
-						</div>
-						<div class="box">
-							<img src="images/p1.jpg" class="img-responsive" alt="img" title="img" />
-							<p>Introduction to Mobile Application Develop..</p>
-							<span>$39.00</span>
-						</div>
-						<div class="box">
-							<img src="images/p2.jpg" class="img-responsive" alt="img" title="img" />
-							<p>Introduction to PHP Website Development</p>
-							<span class="color">Free</span>
-						</div>
+						@endforeach						
 					</div>
 				</div>	
 			</div>
 			<div class="col-sm-9 col-xs-12 mainpage">
 				<div class="col-sm-12 sort">
 					<div class="col-md-6 col-sm-5">
-						<h3>ALL COURSES</h3>
-						<p>TOTAL 145 COURSES</p>
+						<h3>{{ trans("lang.All Courses") }}</h3>
+						<p>{{ trans("Total") }} {{ $count }} {{ trans("lang.Courses") }}</p>
 					</div>
-					<div class="col-md-4 col-sm-4">
+					{{--  <div class="col-md-4 col-sm-4">
 						<div class="form-group">
 							<select id="input-sort" class="form-control selectpicker bs-select-hidden">
 								<option value="" selected="selected">Select Categories</option>
@@ -131,7 +113,7 @@
 								<option value="">5</option>
 							</select>
 						</div>
-					</div>
+					</div>  --}}
 					<div class="col-md-2 col-sm-3 list hidden-xs">
 						<div class="btn-group btn-group-sm">
 							<button type="button" id="grid-view" class="btn btn-default btngrid" data-toggle="tooltip" title="Grid"><i class="fa fa-th-large" aria-hidden="true"></i></button>
@@ -140,20 +122,24 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
+
+
+
+					@foreach ($courses as $one)
+					<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12" style="max-height: 300px;">
 						<div class="product-thumb">
 							<div class="image">
-								<a href="all_courses_singleview.html">
-									<img src="images/01.jpg" class="img-responsive" alt="img" title="img" />
+								<a href="{{ url($lang.'/courses/details/'.$one->id) }}">
+									<img style="width:265px;height:175px;" src="{{ url('public/uploads/images/' . $one->image) }}" class="img-responsive" alt="{{ $one->{$slug->title} }}" title="{{ $one->{$slug->title} }}" />
 								</a>
 							</div>
 							<div class="caption">
-								<h3>Technology <span class="price">$29.00</span></h3>
-								<h4>Developing Mobiles Apps</h4>
-								<h5>Developing Mobiles Apps <span class="price">$29.00</span></h5>
-								<h6>Technology </h6>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum ipsum malesuada arcu tristique, sit amet fringilla metus volutpat.</p>
-								<ul class="list-inline">
+								<h3>{{ $one->year->year }} </h3>
+								<h4>{{ $one->{$slug->title} }}</h4>
+								{{--  <h5>Developing Mobiles Apps <span class="price">$29.00</span></h5>  --}}
+								<h6>{{ $one->year->year }} - {{ $one->{$slug->title} }}</h6>
+								<p>{{ substr($one->{$slug->content}, 0, 150) }}</p>
+								{{--  <ul class="list-inline">
 									<li>
 										<a href="#"><i class="icofont icofont-ui-user"></i>15</a>
 									</li>
@@ -167,381 +153,15 @@
 										<i class="icofont icofont-star"></i>
 										<i class="icofont icofont-star"></i>
 									</li>
-								</ul>
+								</ul>  --}}
 							</div>
 						</div>
-					</div>
-					<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
-						<div class="product-thumb">
-							<div class="image">
-								<a href="all_courses_singleview.html">
-									<img src="images/02.jpg" class="img-responsive" alt="img" title="img" />
-								</a>
-							</div>
-							<div class="caption">
-								<h3>Photography <span class="price">$29.00</span></h3>
-								<h4>Basic Nature Photography</h4>
-								<h5>Basic Nature Photography <span class="price">$29.00</span></h5>
-								<h6>Photography </h6>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum ipsum malesuada arcu tristique, sit amet fringilla metus volutpat.</p>
-								<ul class="list-inline">
-									<li>
-										<a href="#"><i class="icofont icofont-ui-user"></i>15</a>
-									</li>
-									<li>
-										<a href="#"><i class="icofont icofont-comment"></i>10</a>
-									</li>
-									<li>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
-						<div class="product-thumb">
-							<div class="image">
-								<a href="all_courses_singleview.html">
-									<img src="images/03.jpg" class="img-responsive" alt="img" title="img" />
-								</a>
-							</div>
-							<div class="caption">
-								<h3>Busniss <span class="price">$29.00</span></h3>
-								<h4>Market Management</h4>
-								<h5>Market Management <span class="price">$29.00</span></h5>
-								<h6>Business</h6>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum ipsum malesuada arcu tristique, sit amet fringilla metus volutpat.</p>
-								<ul class="list-inline">
-									<li>
-										<a href="#"><i class="icofont icofont-ui-user"></i>15</a>
-									</li>
-									<li>
-										<a href="#"><i class="icofont icofont-comment"></i>10</a>
-									</li>
-									<li>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
-						<div class="product-thumb">
-							<div class="image">
-								<a href="all_courses_singleview.html">
-									<img src="images/05.jpg" class="img-responsive" alt="img" title="img" />
-								</a>
-							</div>
-							<div class="caption">
-								<h3>Graphic Design <span class="price">$29.00</span></h3>
-								<h4>Professional Logo Design</h4>
-								<h5>Professional Logo Design <span class="price">$29.00</span></h5>
-								<h6>Graphic Design</h6>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum ipsum malesuada arcu tristique, sit amet fringilla metus volutpat.</p>
-								<ul class="list-inline">
-									<li>
-										<a href="#"><i class="icofont icofont-ui-user"></i>15</a>
-									</li>
-									<li>
-										<a href="#"><i class="icofont icofont-comment"></i>10</a>
-									</li>
-									<li>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
-						<div class="product-thumb">
-							<div class="image">
-								<a href="all_courses_singleview.html">
-									<img src="images/06.jpg" class="img-responsive" alt="img" title="img" />
-								</a>
-							</div>
-							<div class="caption">
-								<h3>Adobe photoshop <span class="text">Free</span></h3>
-								<h4>Photoshop Effects</h4>
-								<h5>Photoshop Effects <span class="text">Free</span></h5>
-								<h6>Adobe photoshop</h6>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum ipsum malesuada arcu tristique, sit amet fringilla metus volutpat.</p>
-								<ul class="list-inline">
-									<li>
-										<a href="#"><i class="icofont icofont-ui-user"></i>15</a>
-									</li>
-									<li>
-										<a href="#"><i class="icofont icofont-comment"></i>10</a>
-									</li>
-									<li>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
-						<div class="product-thumb">
-							<div class="image">
-								<a href="all_courses_singleview.html">
-									<img src="images/07.jpg" class="img-responsive" alt="img" title="img" />
-								</a>
-							</div>
-							<div class="caption">
-								<h3>Adobe photoshop <span class="price">$29.00</span></h3>
-								<h4>Personal Busniss Card</h4>
-								<h5>Personal Busniss Card <span class="price">$29.00</span></h5>
-								<h6>Adobe photoshop</h6>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum ipsum malesuada arcu tristique, sit amet fringilla metus volutpat.</p>
-								<ul class="list-inline">
-									<li>
-										<a href="#"><i class="icofont icofont-ui-user"></i>15</a>
-									</li>
-									<li>
-										<a href="#"><i class="icofont icofont-comment"></i>10</a>
-									</li>
-									<li>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
-						<div class="product-thumb">
-							<div class="image">
-								<a href="all_courses_singleview.html">
-									<img src="images/04.jpg" class="img-responsive" alt="img" title="img" />
-								</a>
-							</div>
-							<div class="caption">
-								<h3>Technology <span class="price">$29.00</span></h3>
-								<h4>Developing Mobiles Apps</h4>
-								<h5>Developing Mobiles Apps <span class="price">$29.00</span></h5>
-								<h6>Technology</h6>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum ipsum malesuada arcu tristique, sit amet fringilla metus volutpat.</p>
-								<ul class="list-inline">
-									<li>
-										<a href="#"><i class="icofont icofont-ui-user"></i>15</a>
-									</li>
-									<li>
-										<a href="#"><i class="icofont icofont-comment"></i>10</a>
-									</li>
-									<li>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
-						<div class="product-thumb">
-							<div class="image">
-								<a href="all_courses_singleview.html">
-									<img src="images/08.jpg" class="img-responsive" alt="img" title="img" />
-								</a>
-							</div>
-							<div class="caption">
-								<h3>Technology <span class="price">$29.00</span></h3>
-								<h4>Convert PSD to HTML</h4>
-								<h5>Convert PSD to HTML<span class="price">$29.00</span></h5>
-								<h6>Technology</h6>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum ipsum malesuada arcu tristique, sit amet fringilla metus volutpat.</p>
-								<ul class="list-inline">
-									<li>
-										<a href="#"><i class="icofont icofont-ui-user"></i>15</a>
-									</li>
-									<li>
-										<a href="#"><i class="icofont icofont-comment"></i>10</a>
-									</li>
-									<li>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
-						<div class="product-thumb">
-							<div class="image">
-								<a href="all_courses_singleview.html">
-									<img src="images/09.jpg" class="img-responsive" alt="img" title="img" />
-								</a>
-							</div>
-							<div class="caption">
-								<h3>Adobe photoshop <span class="text">Free</span></h3>
-								<h4>Marketing management</h4>
-								<h5>Marketing management <span class="text">Free</span></h5>
-								<h6>Adobe photoshop</h6>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum ipsum malesuada arcu tristique, sit amet fringilla metus volutpat.</p>
-								<ul class="list-inline">
-									<li>
-										<a href="#"><i class="icofont icofont-ui-user"></i>15</a>
-									</li>
-									<li>
-										<a href="#"><i class="icofont icofont-comment"></i>10</a>
-									</li>
-									<li>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
-						<div class="product-thumb">
-							<div class="image">
-								<a href="all_courses_singleview.html">
-									<img src="images/01.jpg" class="img-responsive" alt="img" title="img" />
-								</a>
-							</div>
-							<div class="caption">
-								<h3>Technology <span class="price">$29.00</span></h3>
-								<h4>Developing Mobiles Apps</h4>
-								<h5>Developing Mobiles Apps <span class="price">$29.00</span></h5>
-								<h6>Technology</h6>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum ipsum malesuada arcu tristique, sit amet fringilla metus volutpat.</p>
-								<ul class="list-inline">
-									<li>
-										<a href="#"><i class="icofont icofont-ui-user"></i>15</a>
-									</li>
-									<li>
-										<a href="#"><i class="icofont icofont-comment"></i>10</a>
-									</li>
-									<li>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
-						<div class="product-thumb">
-							<div class="image">
-								<a href="all_courses_singleview.html">
-									<img src="images/02.jpg" class="img-responsive" alt="img" title="img" />
-								</a>
-							</div>
-							<div class="caption">
-								<h3>Photography <span class="price">$29.00</span></h3>
-								<h4>Basic Nature Photography</h4>
-								<h5>Basic Nature Photography <span class="price">$29.00</span></h5>
-								<h6>Photography</h6>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum ipsum malesuada arcu tristique, sit amet fringilla metus volutpat.</p>
-								<ul class="list-inline">
-									<li>
-										<a href="#"><i class="icofont icofont-ui-user"></i>15</a>
-									</li>
-									<li>
-										<a href="#"><i class="icofont icofont-comment"></i>10</a>
-									</li>
-									<li>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
-						<div class="product-thumb">
-							<div class="image">
-								<a href="all_courses_singleview.html">
-									<img src="images/03.jpg" class="img-responsive" alt="img" title="img" />
-								</a>
-							</div>
-							<div class="caption">
-								<h3>Busniss <span class="price">$29.00</span></h3>
-								<h4>Market Management</h4>
-								<h5>Market Management<span class="price">$29.00</span></h5>
-								<h6>Busniss</h6>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum ipsum malesuada arcu tristique, sit amet fringilla metus volutpat.</p>
-								<ul class="list-inline">
-									<li>
-										<a href="#"><i class="icofont icofont-ui-user"></i>15</a>
-									</li>
-									<li>
-										<a href="#"><i class="icofont icofont-comment"></i>10</a>
-									</li>
-									<li>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-										<i class="icofont icofont-star"></i>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
+					</div>	
+					@endforeach
+										
 					<!--pagination code start here-->
 					<div class="col-sm-12 col-xs-12">		
-						<ul class="list-inline pagination">
-							<li>
-								<a href="#" aria-label="Previous">
-									<i class="icofont icofont-bubble-left"></i>Prev
-								</a>
-							</li>
-							<li class="active">
-								<a href="#">01</a> 
-							</li>
-							<li>
-								<a href="#">02</a> 
-							</li>
-							<li>
-								<a href="#">03</a>
-							</li>
-							<li>
-								<a href="#">04</a>
-							</li>
-							<li>
-								<a href="#">...</a> 
-							</li>
-							<li>
-								<a href="#">18</a> 
-							</li>
-							<li>
-								<a href="#" aria-label="Next">Next<i class="icofont icofont-bubble-right"></i></a>
-							</li>
-						</ul>
+						{{ $courses->links() }}
 					</div>
 					<!--pagination code end here-->
 				</div>
@@ -551,26 +171,5 @@
 </div>
 <!-- coures end here -->
 
-<!-- newsletter start here -->
-<div id="newsletter">
-	<div class="container">
-		<div class="row">
-			<div id="subscribe">
-				<form class="form-horizontal" name="subscribe">
-					<div class="col-sm-12"> 
-						<p class="news">SUBSCribe to our <span>newsletter</span></p>
-					</div>
-					<div class="col-sm-12 form-group">
-						<div class="input-group">
-							<input  value="" name="subscribe_email" id="subscribe_email" placeholder="Type your e-mail..." type="text">
-							<button class="btn btn-news" type="submit" value="submit">Submit</button>
-						</div>
-					</div>
-				</form>
-			</div> 
-		</div>
-	</div>
-</div>
-<!-- newsletter end here -->
 
 @stop

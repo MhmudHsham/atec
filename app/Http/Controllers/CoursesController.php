@@ -8,8 +8,10 @@ use App\Course;
 class CoursesController extends Controller
 {
     public function index() {
-        $courses = Course::orderBy("id", "desc")->paginate(10);
-        return view("front.courses.index", compact("courses"));
+        $courses = Course::with("year")->orderBy("id", "desc")->paginate(10);
+        $count = Course::count();
+        $latest_courses = Course::orderBy("id", "asc")->limit(10)->get();
+        return view("front.courses.index", compact("courses", "count", "latest_courses"));
     }
 
     public function details($id) {
