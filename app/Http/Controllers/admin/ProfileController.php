@@ -14,7 +14,7 @@ class ProfileController extends Controller
 {
     public function index() {
         $user_id = Auth::user()->id;
-        $details = Instructor::where("user_id", $user_id)->first();        
+        $details = Instructor::where("user_id", $user_id)->first();      
         $materials = Material::with("course")->with("course.year")->where("instructor_id", $details->id)->get();        
         return view("admin.profile.index", compact("details", "materials"));
     }

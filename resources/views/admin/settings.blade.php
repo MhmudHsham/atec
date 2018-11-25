@@ -132,6 +132,83 @@
                         </div>
                     </div>
 
+
+
+
+                    <div class="form-group form-md-line-input">
+                        <label class="col-md-2 control-label" for="form_control_1">Phone
+                            <span class="required">*</span>
+                        </label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" placeholder="" name="phone" id="phone" value="{{ $settings['phone'] }}">
+                            <div class="form-control-focus"> </div>
+                            <span class="help-block">{{ trans("lang.Enter Phone") }}</span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group form-md-line-input">
+                        <label class="col-md-2 control-label" for="form_control_1">Mobile
+                            <span class="required">*</span>
+                        </label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" placeholder="" name="mobile" id="mobile" value="{{ $settings['mobile'] }}">
+                            <div class="form-control-focus"> </div>
+                            <span class="help-block">{{ trans("lang.Enter Mobile") }}</span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group form-md-line-input">
+                        <label class="col-md-2 control-label" for="form_control_1">Website
+                            <span class="required">*</span>
+                        </label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" placeholder="" name="website" id="website" value="{{ $settings['website'] }}">
+                            <div class="form-control-focus"> </div>
+                            <span class="help-block">{{ trans("lang.Enter Website") }}</span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group form-md-line-input">
+                        <label class="col-md-2 control-label" for="form_control_1">Email
+                            <span class="required">*</span>
+                        </label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" placeholder="" name="email" id="email" value="{{ $settings['email'] }}">
+                            <div class="form-control-focus"> </div>
+                            <span class="help-block">{{ trans("lang.Enter Email") }}</span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group form-md-line-input">
+                        <label class="col-md-2 control-label" for="form_control_1">العنوان بالإنجليزية
+                            <span class="required">*</span>
+                        </label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" placeholder="" name="address_en" id="address_en" value="{{ $settings['address_en'] }}">
+                            <div class="form-control-focus"> </div>
+                            <span class="help-block">{{ trans("lang.Enter Address") }}</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-md-line-input">
+                        <label class="col-md-2 control-label" for="form_control_1">العنوان بالعربية
+                            <span class="required">*</span>
+                        </label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" placeholder="" name="address_ar" id="address_ar" value="{{ $settings['address_ar'] }}">
+                            <div class="form-control-focus"> </div>
+                            <span class="help-block">{{ trans("lang.Enter Address") }}</span>
+                        </div>
+                    </div>
+    
+
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
