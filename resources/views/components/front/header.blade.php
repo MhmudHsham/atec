@@ -7,9 +7,9 @@
 					<li>
 						<a href="{{ url($lang . '/contact-us') }}"><i class="icofont icofont-exclamation-circle"></i>{{ trans("lang.Help Center") }}</a>
 					</li>
-					<li>
+					{{--  <li>
 						<a href="{{ url($lang . '/faq') }}"><i class="icofont icofont-support-faq"></i>{{ trans("lang.FAQ") }}</a>
-					</li>
+					</li>  --}}
 					<li>
 						<!--language code start here-->
 						<form  method="post" enctype="multipart/form-data" id="language">
@@ -40,9 +40,9 @@
 					<li>
 						<a href="{{ url($lang . '/courses') }}"><i class="icofont icofont-navigation-menu"></i>{{ trans("lang.Browse Courses") }}</a>
 					</li>
-					<li>
+					{{--  <li>
 						<a href="{{ url($lang.'/login') }}"><i class="icofont icofont-key"></i>{{ trans("lang.Login") }}</a>
-					</li>
+					</li>  --}}
 				</ul>
 			</div>
 		</div>

@@ -39,6 +39,7 @@ class MaterialsController extends Controller
      */
     public function store(Request $request)
     {                
+        // dd($request->all());
         $request->validate([
             "title_ar" => "required",
             "title_en" => "required",            

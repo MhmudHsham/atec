@@ -106,18 +106,22 @@
 				</ul>
 			</div> -->
 			<div class="col-sm-3 links2">
-				<h5>contact us</h5>
-				<hr>
-				<!-- <p class="des1">Nunc quis viverra nibh. Etiam mauris leo, consequat ut tincidunt ac, lobortis consequat ligula.</p> -->
+				<h5>{{ trans("lang.Contact Info") }}</h5>
+				<hr>				
 				<ul class="list-unstyled contact">
 					<li>
-						<i class="icofont icofont-home"></i> Address : 14/3 Samrala Chownk, Main Road, Ludhiana 141001, India.
+						<i class="icofont icofont-home"></i> Address : 
+						@if($lang == "en")
+						{{ $settings['address_en'] }}
+						@else 
+						{{ $settings['address_ar'] }}
+						@endif
 					</li>
 					<li>
-						<i class="icofont icofont-phone"></i> 	Phone Number : +91 123457890<br> Fax : +00 123 456 7890
+						<i class="icofont icofont-phone"></i> 	Phone Number : {{ $settings['phone'] }} <br> {{ $settings['mobile'] }}
 					</li>
 					<li>
-						<i class="icofont icofont-globe"></i>Email : educourses@example.com<br>Website : www.educourses.com
+						<i class="icofont icofont-globe"></i>Email : {{ $settings['email'] }} <br>Website : {{ $settings['website'] }}
 					</li>
 				</ul>
 			</div>
@@ -129,24 +133,24 @@
 				<div class="col-sm-6">
 					<ul class="list-inline">
 						<li>
-							<a href="index-2.html">Home</a>
+							<a href="{{ url($lang.'/') }}">Home</a>
 						</li>
 						<li>
-							<a href="all_courses.html">Courses</a>
+							<a href="{{ url($lang.'/courses') }}">Courses</a>
 						</li>
 						<li>
-							<a href="about.html">ABOUT</a>
+							<a href="{{ url($lang.'/about-us') }}">ABOUT</a>
 						</li>
 						<li>
-							<a href="event.html">Events</a>
+							<a href="{{ url($lang.'/news') }}">News</a>
 						</li>
 						<li>
-							<a href="contactus.html">contact us</a>
+							<a href="{{ url($lang.'/contact-us') }}">contact us</a>
 						</li>
 					</ul>
 				</div>
 				<div class="col-sm-6 text-right">
-					<p>EDU Courses Online Education © 2017 TMD Studio, All Rights Reserved.</p>
+					<p>ATEC learning system © 2018, All Rights Reserved.</p>
 				</div>
 			</div>
 		</div>

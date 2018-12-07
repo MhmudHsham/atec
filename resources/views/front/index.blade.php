@@ -130,7 +130,8 @@
                             <div class="col-sm-12 col-xs-12">
                                 <div class="product-thumb">
                                     <div class="image">
-                                        <a href="{{ url('courses/details/' . $one->id . '/' . str_replace(' ', '-', $one->{$slug->title})) }}">
+                                        <a href="{{ url('courses/details/' . $one->id) }}">
+                                        {{--  <a href="{{ url('courses/details/' . $one->id . '/' . str_replace(' ', '-', $one->{$slug->title})) }}">  --}}
                                             <img style="width: 260px;height: 190px;"
                                                  src="{{ url('public/uploads/images/' . $one->image) }}"
                                                  class="img-responsive"
@@ -253,7 +254,8 @@
                     <div class="col-sm-4 col-xs-12">
                         <div class="box">
                             <div class="image">
-                                <a href="{{ url('news/details/' . $one->id . '/' . str_replace(' ', '-', $one->{$slug->title})) }}">
+                                <a href="{{ url('news/details/' . $one->id) }}">
+                                {{--  <a href="{{ url('news/details/' . $one->id . '/' . str_replace(' ', '-', $one->{$slug->title})) }}">  --}}
                                     <img style="width: 360px;height: 250px;"
                                          src="{{ url('public/uploads/images/' . $one->image) }}" class="img-responsive"
                                          alt="{{ $one->{$slug->title} }}" title="{{ $one->{$slug->title} }}"/>

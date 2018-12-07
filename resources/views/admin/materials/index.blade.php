@@ -54,7 +54,7 @@
                         <tr class="tr_{{ $one->id }}">
                             <td class="text-center">{{ $counter }}</td>
                             <td>{{ $one->title_ar }} </td> 
-                            <td><img width="80px" src="{{ url('/uploads/images') . '/' . $one->image }}" /></td> 
+                            <td><img style="width:80px;height:80px;" src="{{ url('/public/uploads/images') . '/' . $one->image }}" /></td> 
                             <td>{{ $one->course->title_en }} </td> 
                             <td>
                                 <div class="btn-group pull-right">

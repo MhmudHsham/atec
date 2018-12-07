@@ -17,5 +17,9 @@ class Material extends Model
     public function course() {
         return $this->belongsTo("App\Course", "course_id");
     }
+
+    public function instructor() {
+        return $this->belongsTo("App\User", "instructor_id");
+    }
  
 }

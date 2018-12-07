@@ -20,7 +20,7 @@
             <ul class="nav navbar-nav pull-right">            
                 @php($name = Auth::user()->name)
                 @php($user_id = Auth::user()->id)                
-                @php($image = \App\Instructor::where("user_id", $user_id)->pluck("image"))[0]
+                @php($image = \App\Instructor::where("user_id", $user_id)->first()->image)            
                 <li class="dropdown dropdown-user">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                         <img alt="" class="img-circle" src="{{ url('public/uploads/images') . '/' . $image }}" />
