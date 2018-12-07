@@ -9,9 +9,10 @@
 					</div>
 					<div class="col-sm-12 form-group">
 						<div class="input-group">
-							<input  value="" name="subscribe_email" id="subscribe_email" placeholder="{{ trans('lang.Type your e-mail...') }}" type="text">
+							<input  value="" name="subscribe_email" id="subscribe_email" placeholder="{{ trans('lang.Type your e-mail...') }}" type="text">							
 							<button class="btn btn-news" type="submit" value="submit">{{ trans("lang.Submit") }}</button>
 						</div>
+						<span class="help-block"></span>
 					</div>
 				</form>
 			</div> 
@@ -165,7 +166,7 @@
 <script src="{{ url('public/assets/front/js/internal.js') }}" type="text/javascript"></script>
 <script>
 	var custom = {
-		subscribe_url: "{{ url('subscribe') }}"
+		subscribe_url: "{{ url('subscribe_us') }}"
 	};
 </script>
 <script src="{{ url('public/assets/front/custom/js/app.js') }}" type="text/javascript"></script>

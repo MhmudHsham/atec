@@ -51,6 +51,8 @@ Route::group(["middleware"=>["auth", "permission"], "prefix" => "admin"], functi
 });
 
 
+Route::get('subscribe'. 'HomeController@subscribe_us');
+
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localize']
@@ -65,7 +67,8 @@ Route::group([
     Route::get(LaravelLocalization::transRoute('news/details/{news_id}'), 'NewsController@details');
     Route::get(LaravelLocalization::transRoute('student/login'), 'UsersController@loginView');
     Route::get(LaravelLocalization::transRoute('courses'), 'CoursesController@index');
+    Route::get(LaravelLocalization::transRoute('courses/details/{course_id}'), 'CoursesController@details');
 });
 
-Route::get('subscribe'. 'HomeController@setSubscriber');
+Route::post('subscribe', 'HomeController@subscribe_us');
 Route::post('post-contact-us', 'ContactusController@store');

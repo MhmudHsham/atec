@@ -14,7 +14,7 @@ class CoursesController extends Controller
         return view("front.courses.index", compact("courses", "count", "latest_courses"));
     }
 
-    public function details($id) {
+    public function details($id) {        
         $details = Course::find($id);
         return view("front.courses.details", compact("details"));
     }
